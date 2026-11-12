@@ -544,6 +544,68 @@ html[data-motion="off"] html,html[data-motion="off"] body,html[data-motion="off"
   .v76-public .v7-public-footer .logo-text small{font-size:9px}
 }
 </style>
+  <!-- RAWNAK Academy original icon for the browser tab. -->
+  <link rel="icon" href="assets/rawnak-academy-logo.webp" type="image/webp" sizes="any" />
+  <link rel="shortcut icon" href="assets/rawnak-academy-logo.webp" type="image/webp" />
+
+<style id="rawnak-v8-public-navbar">
+/* Public Academy navigation: preserve the brand layout while restoring mobile navigation. */
+.v76-public .v7-guest-head{isolation:isolate}
+.v76-public .v7-guest-inner{max-width:1450px;gap:clamp(12px,2vw,32px)}
+.v76-public .v7-guest-links{gap:clamp(16px,2.2vw,34px)}
+.v76-public .v7-guest-links a{position:relative;font-size:13px;white-space:nowrap;padding:11px 0;transition:color .2s ease}
+.v76-public .v7-guest-links a::after{content:"";position:absolute;bottom:4px;left:0;width:100%;height:1.5px;background:#256658;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.v76-public .v7-guest-links a:hover::after,.v76-public .v7-guest-links a:focus-visible::after{transform:scaleX(1)}
+.v76-public .v7-guest-actions{gap:10px;flex-shrink:0}
+.v76-public .v7-guest-actions .btn{white-space:nowrap}
+.v76-public .v7-guest-head .logo{flex-shrink:0}
+.v8-nav-dropdown{display:none}
+.v76-public section[id]{scroll-margin-top:94px}
+@media(max-width:1120px){
+ .v76-public .v7-guest-links{display:none!important}
+ .v76-public .v7-guest-inner{padding-inline:clamp(14px,3vw,32px);gap:12px}
+ .v76-public .v7-guest-actions .v7-teach-link{display:none!important}
+ .v8-nav-dropdown{display:block;position:static}
+ .v8-menu-trigger{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;min-width:44px;height:44px;border:1px solid rgba(19,58,51,.17);border-radius:12px;background:#fffefa;color:#143630;padding:0 12px;font:700 12px var(--font-body,'DM Sans',sans-serif);transition:border-color .2s,background .2s}
+ .v8-menu-trigger::-webkit-details-marker{display:none}
+ .v8-menu-trigger:hover,.v8-nav-dropdown[open] .v8-menu-trigger{background:#e8eee8;border-color:#91b0a4}
+ .v8-menu-trigger:focus-visible,.v8-mobile-links a:focus-visible,.v8-mobile-links button:focus-visible{outline:3px solid #398c76;outline-offset:3px}
+ .v8-menu-lines{width:17px;display:flex;flex-direction:column;gap:4px}
+ .v8-menu-lines i{height:1.5px;border-radius:2px;width:17px;background:currentColor;transition:transform .2s,opacity .2s}
+ .v8-nav-dropdown[open] .v8-menu-lines i:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+ .v8-nav-dropdown[open] .v8-menu-lines i:nth-child(2){opacity:0}
+ .v8-nav-dropdown[open] .v8-menu-lines i:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+ .v8-mobile-links{position:absolute;right:clamp(14px,3vw,32px);top:calc(100% + 1px);width:min(350px,calc(100vw - 28px));display:flex;flex-direction:column;gap:1px;padding:19px 16px 16px;border:1px solid #dbe5df;border-radius:0 0 18px 18px;background:#fffefa;color:#173c36;box-shadow:0 26px 60px rgba(9,38,32,.18);z-index:1000}
+ .v8-menu-kicker{display:block;padding:5px 11px 11px;color:#68857d;font-size:10px;font-weight:800;letter-spacing:.16em}
+ .v8-mobile-links a,.v8-mobile-links button{font:700 14px var(--font-body,'DM Sans',sans-serif);color:#173c36!important;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;background:transparent;border-radius:9px;text-align:left;padding:12px 11px;min-height:45px;cursor:pointer;text-decoration:none}
+ .v8-mobile-links a:hover,.v8-mobile-links button:hover{background:#edf4ee;color:#1c7567!important}
+ .v8-mobile-links a span,.v8-mobile-links button span{font-size:15px;color:#699689}
+ .v8-menu-divider{height:1px;background:#e1e9e2;margin:9px 11px}
+}
+@media(max-width:700px){
+ .v76-public .v7-guest-actions>.btn.plain{display:none!important}
+ .v76-public .v7-guest-inner{height:72px;min-height:72px}
+ .v76-public .v7-guest-actions .btn.primary{min-height:42px;padding:9px 12px!important;font-size:12px;letter-spacing:-.02em}
+ .v8-menu-word{display:none}
+ .v8-menu-trigger{width:44px;padding:0}
+}
+@media(max-width:390px){
+ .v76-public .v7-guest-inner{padding-inline:12px;gap:5px}
+ .v76-public .v7-guest-actions{gap:6px}
+ .v76-public .v7-guest-head .logo{gap:5px}
+ .v76-public .v7-guest-head .v76-brand-icon,.v76-public .v7-guest-head .v76-brand-icon img{width:38px;height:38px}
+ .v76-public .v7-guest-head .logo-text strong{font-size:11px;letter-spacing:.12em}
+ .v76-public .v7-guest-head .logo-text small{font-size:7px;letter-spacing:.24em}
+ .v76-public .v7-guest-actions .btn.primary{font-size:11px;padding:8px 9px!important;gap:5px;min-height:40px}
+ .v76-public .v7-guest-actions .btn.primary .ic{width:13px;height:13px}
+ .v8-menu-trigger{width:40px;height:40px;min-width:40px}
+}
+@media(max-width:330px){
+ .v76-public .v7-guest-actions .btn.primary .ic{display:none}
+ .v76-public .v7-guest-head .logo-text small{letter-spacing:.15em}
+}
+@media(prefers-reduced-motion:reduce){.v8-menu-trigger,.v8-menu-lines i,.v76-public .v7-guest-links a::after{transition:none}}
+</style>
 </head>
 <body>
 <script>if(!location.hash)location.hash="#/welcome"</script>
@@ -870,7 +932,7 @@ const v7Valid=(route,role)=>role==='student'?(v7AllowedStudent.includes(route)||
 const v7GetProfile=()=>v7session?.profile||{};
 const v7Initial=()=>String(v7GetProfile().name||'Guest').trim().split(/\s+/).map(x=>x[0]||'').slice(0,2).join('').toUpperCase();
 const v7Mark=(cls='')=>`<a href="#/${v7role()?v7homeOf(v7role()):'welcome'}" class="logo ${cls}" aria-label="RAWNAK Academy"><span class="brand-icon v76-brand-icon"><img src="assets/rawnak-academy-logo.webp" width="52" height="52" alt="" decoding="async" /></span><span class="logo-text"><strong>RAWNAK</strong><small>ACADEMY</small></span></a>`;
-const v7guestHeader=()=>`<header class="v7-guest-head"><div class="v7-guest-inner">${v7Mark()}<nav class="v7-guest-links" aria-label="Public navigation"><a href="#/welcome" data-v7-scroll="mission">Our vision</a><a href="#/welcome" data-v7-scroll="experience">The experience</a><a href="#/welcome" data-v7-scroll="smart-books">Smart books</a><a href="#/welcome" data-v7-scroll="for-educators">For educators</a></nav><div class="v7-guest-actions"><button class="btn sm plain" data-nav="login">Log in</button><button class="btn sm outline v7-teach-link" data-action="v7WhatsApp">Teach with us</button><button class="btn sm primary" data-nav="signup">Sign up free ${icon('ne')}</button></div></div></header>`;
+const v7guestHeader=()=>`<header class="v7-guest-head"><div class="v7-guest-inner">${v7Mark()}<nav class="v7-guest-links" aria-label="Public navigation"><a href="#/welcome" data-v7-scroll="mission">Our vision</a><a href="#/welcome" data-v7-scroll="experience">The experience</a><a href="#/welcome" data-v7-scroll="smart-books">Smart books</a><a href="#/welcome" data-v7-scroll="for-educators">For educators</a></nav><div class="v7-guest-actions"><button class="btn sm plain" data-nav="login">Log in</button><button class="btn sm outline v7-teach-link" data-action="v7WhatsApp">Teach with us</button><button class="btn sm primary" data-nav="signup">Sign up free ${icon('ne')}</button><details class="v8-nav-dropdown"><summary class="v8-menu-trigger" aria-label="Open navigation menu"><span class="v8-menu-lines" aria-hidden="true"><i></i><i></i><i></i></span><span class="v8-menu-word">Menu</span></summary><nav class="v8-mobile-links" aria-label="Mobile navigation"><span class="v8-menu-kicker">EXPLORE THE ACADEMY</span><a href="#/welcome" data-v7-scroll="mission">Our vision <span aria-hidden="true">↗</span></a><a href="#/welcome" data-v7-scroll="how-it-works">The experience <span aria-hidden="true">↗</span></a><a href="#/welcome" data-v7-scroll="courses">Learning paths <span aria-hidden="true">↗</span></a><a href="#/welcome" data-v7-scroll="smart-books">Smart books <span aria-hidden="true">↗</span></a><a href="#/welcome" data-v7-scroll="for-educators">For educators <span aria-hidden="true">↗</span></a><div class="v8-menu-divider"></div><button type="button" data-nav="login">Log in <span aria-hidden="true">↗</span></button><button type="button" data-action="v7WhatsApp">Teach with us <span aria-hidden="true">↗</span></button></nav></details></div></div></header>`;
 const v7GuestFooter=()=>`<footer class="v7-public-footer"><div class="container"><div class="v7-foot-cols"><div>${v7Mark()}<p style="color:#afcdc2;font-size:13px;max-width:310px;line-height:1.85">Learning is more than a course. It's a world of possibility worth exploring — and sharing.</p><span style="display:inline-block;margin-top:12px;font-size:10px;letter-spacing:.12em;color:#82b3a4">A RAWNAK GROUP INITIATIVE</span></div><div class="v72-foot-group"><strong>Discover</strong><a href="#/welcome" data-v7-scroll="mission">Our purpose</a><a href="#/welcome" data-v7-scroll="how-it-works">How it works</a><a href="#/welcome" data-v7-scroll="courses">Learning paths</a><a href="#/welcome" data-v7-scroll="smart-books">Smart books</a></div><div class="v72-foot-group"><strong>Get started</strong><a href="#/signup">Create free account</a><a href="#/login">Log in</a><button type="button" data-action="v7WhatsApp">Become an educator ↗</button><a href="#/welcome" data-v7-scroll="gift-learning">Gift meaningful things</a></div><div class="v72-foot-group"><strong>Information</strong><a href="#/welcome" data-v7-scroll="faq">FAQ</a><a href="https://rawnakgroup.com" target="_blank" rel="noopener noreferrer">RAWNAK Group ↗</a><span>Privacy, legal and support pages to be linked before launch</span></div></div><div class="v7-foot-bottom"><span>© 2026 RAWNAK ACADEMY · A RAWNAK GROUP EXPERIENCE</span><span>V7.6 INTERACTIVE DESIGN PREVIEW · CONTENT AND CONNECTIONS ARE DEMONSTRATIONS</span></div></div></footer>`;
 function v7Landing(){return `<div class="v7-public v76-public" id="v76-top">${v7guestHeader()}<main>
 <section class="v76-hero" aria-labelledby="v76-hero-title">
@@ -2596,6 +2658,20 @@ document.addEventListener('pointermove',e=>{
 });
 document.addEventListener('pointerout',e=>{if(e.target.closest('.v76-tilt-zone')&&!e.relatedTarget?.closest?.('.v76-tilt-zone')){const d=document.getElementById('v76-device');if(d)d.style.transform=''}});
 
+</script>
+<script id="rawnak-v8-menu-behavior">
+/* Menu is native <details> for keyboard and no-JS fallback. */
+document.addEventListener('click', function (event) {
+  const openMenu = document.querySelector('.v76-public .v8-nav-dropdown[open]');
+  if (!openMenu) return;
+  const inside = event.target.closest('.v8-nav-dropdown');
+  if (!inside || event.target.closest('.v8-mobile-links a, .v8-mobile-links button')) openMenu.open = false;
+});
+document.addEventListener('keydown', function (event) {
+  if (event.key !== 'Escape') return;
+  const openMenu = document.querySelector('.v76-public .v8-nav-dropdown[open]');
+  if (openMenu) { openMenu.open=false; openMenu.querySelector('summary')?.focus(); }
+});
 </script>
 </body>
 </html>
