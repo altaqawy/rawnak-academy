@@ -508,17 +508,40 @@ html[data-motion="off"] html,html[data-motion="off"] body,html[data-motion="off"
 <meta name="image-content-note" content="Editorial photography licensed from Pexels. Actual Rawnak instructors and students are not depicted." />
 
 <style id="rawnak-academy-logo-contrast-hotfix">
-/* Preserve the original logo colors with a readable footer background. */
-.v76-public .v7-public-footer .logo{display:inline-flex;align-items:center;gap:15px;text-decoration:none;white-space:nowrap}
-.v76-public .v7-public-footer .v76-brand-icon{box-sizing:border-box;flex:0 0 66px;width:66px;height:66px;padding:7px;background:#f6f5ed!important;border:1px solid rgba(255,255,255,.24)!important;border-radius:15px!important;box-shadow:0 9px 28px rgba(0,0,0,.20)!important;overflow:hidden!important}
-.v76-public .v7-public-footer .v76-brand-icon img{display:block;width:100%;height:100%;object-fit:contain}
-.v76-public .v7-public-footer .logo-text{display:flex;flex-direction:column;gap:5px}
-.v76-public .v7-public-footer .logo-text strong{color:#f6f8f3!important;font-size:17px;line-height:1.08;letter-spacing:.16em}
-.v76-public .v7-public-footer .logo-text small{color:#cbded3!important;font-size:10px;font-weight:800;letter-spacing:.33em;line-height:1.2}
+/* Footer: keep the original emblem exactly as it is, but render it pure white
+   with its existing transparency; no tile, background, border or shadow.
+   Header brand and logo asset remain unchanged. */
+.v76-public .v7-public-footer .logo{
+  display:inline-flex;align-items:center;gap:13px;
+  text-decoration:none;white-space:nowrap;
+}
+.v76-public .v7-public-footer .v76-brand-icon{
+  box-sizing:border-box;flex:0 0 61px;width:61px;height:61px;
+  padding:0!important;margin:0;
+  background:transparent!important;border:0!important;
+  border-radius:0!important;box-shadow:none!important;
+  overflow:visible!important;
+}
+.v76-public .v7-public-footer .v76-brand-icon img{
+  display:block;width:100%;height:100%;object-fit:contain;
+  filter:brightness(0) invert(1);-webkit-filter:brightness(0) invert(1);
+  opacity:1;
+}
+.v76-public .v7-public-footer .logo-text{
+  display:flex;flex-direction:column;gap:5px;
+}
+.v76-public .v7-public-footer .logo-text strong{
+  color:#fff!important;font-size:17px;line-height:1.08;letter-spacing:.16em;
+}
+.v76-public .v7-public-footer .logo-text small{
+  color:#fff!important;opacity:1;font-size:10px;font-weight:800;letter-spacing:.33em;line-height:1.2;
+}
 @media(max-width:600px){
-.v76-public .v7-public-footer .v76-brand-icon{flex-basis:58px;width:58px;height:58px;padding:6px}
-.v76-public .v7-public-footer .logo-text strong{font-size:15px}
-.v76-public .v7-public-footer .logo-text small{font-size:9px}
+  .v76-public .v7-public-footer .v76-brand-icon{
+    flex-basis:53px;width:53px;height:53px;
+  }
+  .v76-public .v7-public-footer .logo-text strong{font-size:15px}
+  .v76-public .v7-public-footer .logo-text small{font-size:9px}
 }
 </style>
 </head>
