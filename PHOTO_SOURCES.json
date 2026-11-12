@@ -1,0 +1,69 @@
+{
+  "project": "RAWNAK Academy V7.6 — Real Photography Edition",
+  "source": "Pexels editorial photographs; website illustrations are no longer AI-generated",
+  "license": "https://www.pexels.com/license/",
+  "media_delivery": "Remote optimized Pexels image CDN. Network access required; download originals and self-host before production launch.",
+  "usage": "Editorial illustrative photos only; do not claim people are actual staff/students or endorse RAWNAK.",
+  "photos": [
+    {
+      "key": "study-focus.webp",
+      "title": "Solo Learning",
+      "location": "Hero / course-preview card",
+      "id": "3059748",
+      "photographer": "RF._.studio",
+      "page": "https://www.pexels.com/photo/photo-of-woman-looking-on-computer-3059748/",
+      "alt": "Real-life photograph of a student studying at a computer with notebooks",
+      "cdn_url": "https://images.pexels.com/photos/3059748/pexels-photo-3059748.jpeg?auto=compress&cs=tinysrgb&w=1500"
+    },
+    {
+      "key": "study-together.webp",
+      "title": "Collaborative Learning",
+      "location": "Learn Together photo story",
+      "id": "4943623",
+      "photographer": "Nataliya Vaitkevich",
+      "page": "https://www.pexels.com/photo/women-reading-a-book-4943623/",
+      "alt": "Two people studying from a book together near a laptop",
+      "cdn_url": "https://images.pexels.com/photos/4943623/pexels-photo-4943623.jpeg?auto=compress&cs=tinysrgb&w=1500"
+    },
+    {
+      "key": "applied-project.webp",
+      "title": "Learning by Doing",
+      "location": "Learning in Action",
+      "id": "7793668",
+      "photographer": "Yan Krukau",
+      "page": "https://www.pexels.com/photo/a-person-sketching-on-a-notebook-7793668/",
+      "alt": "A real creative professional sketching ideas in a notebook beside a laptop",
+      "cdn_url": "https://images.pexels.com/photos/7793668/pexels-photo-7793668.jpeg?auto=compress&cs=tinysrgb&w=1500"
+    },
+    {
+      "key": "smart-books-qr.webp",
+      "title": "Book to Learning",
+      "location": "Smart Books section",
+      "id": "6267052",
+      "photographer": "Antoni Shkraba",
+      "page": "https://www.pexels.com/photo/young-girl-recording-herself-with-a-phone-on-a-tripod-and-showing-a-book-to-the-camera-6267052/",
+      "alt": "A person showing a real textbook during a phone-recorded educational session",
+      "cdn_url": "https://images.pexels.com/photos/6267052/pexels-photo-6267052.jpeg?auto=compress&cs=tinysrgb&w=1500"
+    },
+    {
+      "key": "instructor-recording.webp",
+      "title": "Teach with Us",
+      "location": "Instructor Studio",
+      "id": "9040544",
+      "photographer": "Alena Darmel",
+      "page": "https://www.pexels.com/photo/teacher-recording-herself-teaching-9040544/",
+      "alt": "An instructor filming a lesson in a real home studio",
+      "cdn_url": "https://images.pexels.com/photos/9040544/pexels-photo-9040544.jpeg?auto=compress&cs=tinysrgb&w=1500"
+    },
+    {
+      "key": "learning-gift.webp",
+      "title": "Gift the Experience",
+      "location": "Academy x Events",
+      "id": "5725889",
+      "photographer": "Kaboompics",
+      "page": "https://www.pexels.com/photo/close-up-shot-of-a-white-bond-paper-and-a-pen-beside-a-gift-box-on-a-pink-surface-5725889/",
+      "alt": "A gift box, personal card and pen photographed on a soft pink surface",
+      "cdn_url": "https://images.pexels.com/photos/5725889/pexels-photo-5725889.jpeg?auto=compress&cs=tinysrgb&w=1500"
+    }
+  ]
+}
