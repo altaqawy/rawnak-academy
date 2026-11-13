@@ -71,6 +71,8 @@
     var existingBadge=portal.querySelector('.v7-role-badge small');
     if(role==='instructor'&&existingBadge)existingBadge.textContent='EDUCATOR / STUDIO';
     if(role==='owner'){
+      var ownerHeading=top.querySelector('strong');
+      if(ownerHeading&&route==='owner-instructors')ownerHeading.textContent='EDUCATORS';
       portal.querySelectorAll('.v7-sideitem').forEach(function(item){
         if(item.dataset.nav==='owner-instructors')item.innerHTML=glyph('trophy')+' Educators';
       });
