@@ -1,0 +1,66 @@
+
+/* RAWNAK Academy — Arabic layout and language selector.
+   Works with existing theme tokens and role-based mobile navigation. */
+.academy-lang-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:40px;min-width:82px;border:1px solid var(--stroke,#dedbd5);
+  border-radius:11px;background:var(--surface,#fff);color:var(--ink,#202d31);
+  padding:7px 11px;cursor:pointer;font:750 12px var(--font-body,system-ui);
+  white-space:nowrap;line-height:1.2;transition:border-color .2s,background .2s;
+}
+.academy-lang-toggle:hover{border-color:var(--brand,#c75a45);background:var(--brand-pale,#f8eee7)}
+.academy-lang-toggle:focus-visible{outline:3px solid var(--brand,#c75a45);outline-offset:2px}
+.academy-lang-compact{display:none}
+.academy-lang-icon{font-size:16px;line-height:1}
+html[lang="ar"]{
+ --font-body:"Cairo","Tajawal",sans-serif;
+ --font-display:"Cairo","Tajawal",sans-serif;
+ --font-serif:"Cairo","Tajawal",sans-serif;
+}
+html[lang="ar"][data-type]{
+ --font-body:"Cairo","Tajawal",sans-serif;
+ --font-display:"Cairo","Tajawal",sans-serif;
+ --font-serif:"Cairo","Tajawal",sans-serif;
+}
+html[dir="rtl"] body{direction:rtl;text-align:right;font-family:var(--font-body)}
+html[dir="rtl"] .v7-portal,
+html[dir="rtl"] .v7-public,
+html[dir="rtl"] .v76-public,
+html[dir="rtl"] .v7-student-wrap{direction:rtl;text-align:right}
+html[dir="rtl"] :is(.v7-sideitem,.v7-navsection,.v7-logout-link,.v7-app-main,.v7-app-intro,.v7-panel,.v9-shortcut,.v9-sheet-grid button,.v76-public .v7-guest-links a){text-align:right}
+html[dir="rtl"] :is(.v7-portal .v7-sidebar){border-right:0;border-left:1px solid var(--stroke)}
+html[dir="rtl"] :is(.v7-public .v7-guest-head,.v7-portal .v7-app-top,.v7-portal .v7-sidebar,.v7-portal .v7-topright){direction:rtl}
+html[dir="rtl"] :is(.v7-app-intro h1,.v7-page-title,.v76-public h1,.v76-public h2,.v76-public h3,.v9-mobile-intro h1,.hero h1,.section-head h2){
+  letter-spacing:0;line-height:1.35;overflow-wrap:break-word
+}
+html[dir="rtl"] .v76-public :is(.v76-hero,.v76-story,.v76-section,.v76-journey,.v76-card){direction:rtl}
+html[dir="rtl"] .v7-portal .v7-app-main :is(input:not([type="email"]):not([type="tel"]):not([type="url"]),textarea,select){text-align:right}
+html[dir="rtl"] :is(input[type="email"],input[type="tel"],input[type="url"],input[type="number"],input[type="password"]){
+  direction:ltr;text-align:left;unicode-bidi:plaintext
+}
+html[dir="rtl"] :is(.v75-qr-code,.v75-qr-preview,svg,.progress,.v7-progress,.v9-icon){direction:ltr}
+html[dir="rtl"] :is(.v7-app-main .v7-eyebrow,.v7-portal .v7-label,.v76-public .v76-eyebrow,.v9-eyebrow){letter-spacing:0}
+html[dir="rtl"] .v9-hero::before{right:auto;left:-65px}
+html[dir="rtl"] .v9-bottom-nav{direction:rtl}
+html[dir="rtl"] .v9-menu-sheet{direction:rtl}
+html[dir="rtl"] :is(.v9-shortcut,.v9-sheet-grid button){align-items:flex-start}
+html[dir="rtl"] .v7-public .v7-auth-fields input{font-family:var(--font-body)}
+html[dir="rtl"] .v7-public .v7-auth-fields label{text-align:right}
+html[dir="rtl"] :is(.v7-public .v7-form-wrap,.v7-public .v7-guest-login){direction:rtl}
+html[dir="rtl"] .v7-portal .v7-logout-link{text-align:right}
+html[dir="rtl"] .v7-app-main :is(.v7-statbox,.v7-panel){overflow-wrap:anywhere}
+@media(max-width:820px){
+  .v7-portal .v7-app-top .academy-lang-toggle{min-width:39px;width:43px;height:40px;padding:7px;flex-shrink:0}
+  .v7-portal .v7-app-top .academy-lang-icon,.v7-portal .v7-app-top .academy-lang-label{display:none}
+  .v7-portal .v7-app-top .academy-lang-compact{display:block;font-size:13px}
+  .v7-public .academy-lang-toggle,.v76-public .academy-lang-toggle{min-width:40px;padding:7px 8px}
+  .v7-public .academy-lang-label,.v76-public .academy-lang-label{display:none}
+  .v7-public .academy-lang-compact,.v76-public .academy-lang-compact{display:block;font-size:13px}
+  html[dir="rtl"] .v7-portal .v7-app-intro h1{font-size:clamp(27px,8vw,40px)}
+  html[dir="rtl"] .v9-mobile-intro h1{font-size:clamp(26px,8vw,39px);line-height:1.4}
+  html[dir="rtl"] .v9-bottom-nav .v9-tab{font-weight:800}
+}
+@media(max-width:380px){
+  .v7-public .academy-lang-toggle,.v76-public .academy-lang-toggle{width:35px;min-width:35px}
+  .v7-portal .v7-app-top .academy-lang-toggle{width:36px;min-width:36px}
+}
