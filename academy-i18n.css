@@ -216,3 +216,51 @@ html[lang="ar"] :is(.v76-public,.v7-portal,.v7-public) {
  html[lang="ar"] .v9-mobile-intro h1{font-size:27px}
  html[lang="ar"] .v9-shortcut span:last-child{font-size:12px}
 }
+
+
+/* Override the public hero's legacy !important English display typography only in Arabic. */
+html[lang="ar"] .v76-public .v76-hero h1 {
+ font-family:var(--font-display)!important;
+ font-weight:800!important;
+ font-size:clamp(45px,5.7vw,83px)!important;
+ line-height:1.48!important;
+ letter-spacing:0!important;
+ white-space:normal!important;
+ text-wrap:balance;
+}
+html[lang="ar"] .v76-public .v76-hero-italic {
+ font-family:var(--font-editorial)!important;
+ font-weight:600!important;
+ font-style:normal!important;
+ letter-spacing:0!important;
+ line-height:1.45!important;
+}
+html[lang="ar"] .v76-public h2 em,
+html[lang="ar"] .v76-public h3 em {
+ font-family:var(--font-editorial);
+ font-weight:600;
+ font-style:normal;
+ letter-spacing:0;
+}
+html[lang="ar"] .v76-public :is(.v76-device-main h3,.v76-story-screen h3) {
+ font-family:var(--font-display);
+ font-weight:700;
+ letter-spacing:0;
+ line-height:1.45;
+}
+html[lang="ar"] .v76-public .v76-hero-eyebrow {
+ font-family:var(--font-ui);
+ letter-spacing:0;
+ white-space:normal;
+ line-height:1.7;
+}
+html[lang="ar"] .v76-public .v76-hero-left {min-width:0}
+html[lang="ar"] .v76-public .v76-hero-grid {min-height:0}
+@media(max-width:900px){
+ html[lang="ar"] .v76-public .v76-hero h1{font-size:clamp(39px,8.4vw,66px)!important;line-height:1.48!important}
+}
+@media(max-width:600px){
+ html[lang="ar"] .v76-public .v76-hero h1{font-size:clamp(35px,8.5vw,51px)!important;line-height:1.5!important;margin:22px 0!important}
+ html[lang="ar"] .v76-public .v76-hero-italic{font-size:1em}
+ html[lang="ar"] .v76-public .v76-hero-copy{font-size:14px;line-height:1.9}
+}
