@@ -12,15 +12,14 @@
 .academy-lang-toggle:focus-visible{outline:3px solid var(--brand,#c75a45);outline-offset:2px}
 .academy-lang-compact{display:none}
 .academy-lang-icon{font-size:16px;line-height:1}
-html[lang="ar"]{
- --font-body:"Cairo","Tajawal",sans-serif;
- --font-display:"Cairo","Tajawal",sans-serif;
- --font-serif:"Cairo","Tajawal",sans-serif;
-}
+/* Typography roles: display / reading / editorial. English remains unchanged. */
+html[lang="ar"],
 html[lang="ar"][data-type]{
- --font-body:"Cairo","Tajawal",sans-serif;
- --font-display:"Cairo","Tajawal",sans-serif;
- --font-serif:"Cairo","Tajawal",sans-serif;
+ --font-body:"IBM Plex Sans Arabic",sans-serif;
+ --font-display:"Alexandria",sans-serif;
+ --font-serif:"El Messiri",serif;
+ --font-ui:"IBM Plex Sans Arabic",sans-serif;
+ --font-editorial:"El Messiri",serif;
 }
 html[dir="rtl"] body{direction:rtl;text-align:right;font-family:var(--font-body)}
 html[dir="rtl"] .v7-portal,
@@ -76,4 +75,192 @@ html[dir="rtl"] .v7-app-main :is(.v7-statbox,.v7-panel){overflow-wrap:anywhere}
  .academy-language-card{padding:16px;gap:12px}
  .academy-language-card h2{font-size:17px}
  .academy-language-card p{font-size:11px}
+}
+
+
+/* Typography V2 — a deliberate, three-family Arabic system.
+   Use premium geometric display, compact comfortable UI, and one editorial accent.
+   Avoid expensive font-animations, layout-shift effects, and synthetic italics. */
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select {
+ font-family:var(--font-ui);
+ font-kerning:normal;
+}
+html[lang="ar"] body {
+ font-weight:400;
+ line-height:1.78;
+ text-rendering:optimizeLegibility;
+}
+html[lang="ar"] :is(
+ .v76-public h1,.v76-public h2,.v76-public h3,
+ .v7-public h1,.v7-public h2,.v7-public h3,
+ .v7-portal h1,.v7-portal h2,.v7-portal h3,
+ .v6-dashboard h1,.v6-dashboard h2,
+ .v75-top h1,.v75-panel h2,
+ .v9-mobile-intro h1,.v9-quick-title strong,
+ .section-head h2,.hero h1,.course-info h3
+){
+ font-family:var(--font-display);
+ letter-spacing:-.01em;
+ font-style:normal;
+ text-wrap:balance;
+}
+html[lang="ar"] :is(
+ .v76-public p,.v7-public p,.v7-portal p,
+ .v7-portal li,.v7-portal label,.v7-portal td,.v7-portal th,
+ .v6-dashboard p,.v75-panel p,.v9-preview-note,
+ .v9-hero p,.v9-tab,.v9-shortcut span:last-child
+){
+ font-family:var(--font-body);
+ letter-spacing:0;
+ line-height:1.85;
+}
+html[lang="ar"] :is(
+ .v76-public h1,.v76-public h2,
+ .v7-app-intro h1,.v7-public .v7-auth-card h1,
+ .v6-hero h1,.v75-top h1,
+ .v9-mobile-intro h1
+){
+ font-weight:800;
+ line-height:1.37;
+}
+html[lang="ar"] :is(
+ .v76-public h3,.v7-panel h2,
+ .v7-app-main h2,.v7-app-main h3,
+ .v75-panel h2,.v9-quick-title strong
+){
+ font-weight:700;
+ line-height:1.46;
+}
+html[lang="ar"] :is(
+ .v76-hero-italic,.v76-public .serif,
+ .v76-public h2 em,.v76-public h1 em,
+ .v76-public .v76-story-head em,
+ .v76-public .v76-faq h2 em,
+ .v7-guest-head .serif,.hero h1 .serif,
+ .v6-dashboard .serif,
+ .v76-public .v76-gift-message,
+ .v76-public .v76-gift-quote
+){
+ font-family:var(--font-editorial);
+ font-style:normal;
+ font-weight:600;
+ letter-spacing:0;
+ line-height:1.55;
+}
+html[lang="ar"] .v76-public .v76-hero-italic {
+ font-size:.92em;
+ line-height:1.5;
+}
+html[lang="ar"] :is(
+ .v7-sideitem,.v7-app-top,.v7-app-top strong,
+ .v7-ghost,.v7-label,.v7-eyebrow,.v75-eye,
+ .v9-eyebrow,.v9-quick-title small,
+ .v7-navsection,.v7-role-badge,
+ .v9-bottom-nav,.v9-sheet-grid button,
+ .btn,.nav-link,.v75-button,.academy-lang-toggle
+){
+ font-family:var(--font-ui);
+ letter-spacing:0;
+}
+html[lang="ar"] :is(
+ .v7-sideitem,.v7-app-top strong,.v9-tab,
+ .v9-shortcut,.v75-button,.v7-label,.v75-eye
+){font-weight:600}
+html[lang="ar"] :is(
+ .v7-statbox strong,.v6-dashboard .dash-stat strong,
+ .progress-caption,.v76-progress-number,
+ .v75-kpi strong,.v9-numeric
+){font-family:"Inter Tight",var(--font-display);font-variant-numeric:tabular-nums}
+html[lang="ar"] .v7-statbox strong {letter-spacing:0;line-height:1.35}
+html[lang="ar"] .logo-text strong {
+ font-family:var(--font-display);
+ font-weight:800;
+ letter-spacing:0;
+ line-height:1.2;
+}
+html[lang="ar"] .logo-text small {
+ font-family:var(--font-ui);
+ font-weight:600;
+ letter-spacing:0;
+}
+html[lang="ar"] .v7-app-intro p,
+html[lang="ar"] .v7-panel p,
+html[lang="ar"] .v76-hero-copy {
+ font-size:clamp(13px,1.2vw,16px);
+ line-height:1.93;
+}
+html[lang="ar"] .v7-portal :is(input,textarea,select),
+html[lang="ar"] .v7-public :is(input,textarea,select) {
+ font-size:16px;
+ line-height:1.6;
+}
+html[lang="ar"] :is(.v7-statbox span,.v7-statbox small,.v9-quick-title small) {
+ font-size:clamp(10px,.82vw,12px);
+}
+html[lang="ar"] :is(.v76-public,.v7-portal,.v7-public) {
+ overflow-wrap:break-word;
+}
+@media(max-width:820px){
+ html[lang="ar"] .v9-mobile-intro h1{font-size:clamp(27px,7.7vw,37px);line-height:1.42}
+ html[lang="ar"] .v7-app-intro h1{font-size:clamp(29px,7.8vw,43px);line-height:1.42}
+ html[lang="ar"] .v76-public h1{line-height:1.36}
+ html[lang="ar"] .v9-hero p{font-size:13px;line-height:1.86}
+ html[lang="ar"] .v9-tab{line-height:1.2;letter-spacing:0}
+ html[lang="ar"] .v7-portal .v7-app-main p{line-height:1.85}
+}
+@media(max-width:380px){
+ html[lang="ar"] .v9-mobile-intro h1{font-size:27px}
+ html[lang="ar"] .v9-shortcut span:last-child{font-size:12px}
+}
+
+
+/* Override the public hero's legacy !important English display typography only in Arabic. */
+html[lang="ar"] .v76-public .v76-hero h1 {
+ font-family:var(--font-display)!important;
+ font-weight:800!important;
+ font-size:clamp(45px,5.7vw,83px)!important;
+ line-height:1.48!important;
+ letter-spacing:0!important;
+ white-space:normal!important;
+ text-wrap:balance;
+}
+html[lang="ar"] .v76-public .v76-hero-italic {
+ font-family:var(--font-editorial)!important;
+ font-weight:600!important;
+ font-style:normal!important;
+ letter-spacing:0!important;
+ line-height:1.45!important;
+}
+html[lang="ar"] .v76-public h2 em,
+html[lang="ar"] .v76-public h3 em {
+ font-family:var(--font-editorial);
+ font-weight:600;
+ font-style:normal;
+ letter-spacing:0;
+}
+html[lang="ar"] .v76-public :is(.v76-device-main h3,.v76-story-screen h3) {
+ font-family:var(--font-display);
+ font-weight:700;
+ letter-spacing:0;
+ line-height:1.45;
+}
+html[lang="ar"] .v76-public .v76-hero-eyebrow {
+ font-family:var(--font-ui);
+ letter-spacing:0;
+ white-space:normal;
+ line-height:1.7;
+}
+html[lang="ar"] .v76-public .v76-hero-left {min-width:0}
+html[lang="ar"] .v76-public .v76-hero-grid {min-height:0}
+@media(max-width:900px){
+ html[lang="ar"] .v76-public .v76-hero h1{font-size:clamp(39px,8.4vw,66px)!important;line-height:1.48!important}
+}
+@media(max-width:600px){
+ html[lang="ar"] .v76-public .v76-hero h1{font-size:clamp(35px,8.5vw,51px)!important;line-height:1.5!important;margin:22px 0!important}
+ html[lang="ar"] .v76-public .v76-hero-italic{font-size:1em}
+ html[lang="ar"] .v76-public .v76-hero-copy{font-size:14px;line-height:1.9}
 }
