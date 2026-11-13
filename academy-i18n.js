@@ -49,7 +49,7 @@ const RAWNAK_TRANSLATIONS="RAWNAK|رونق\nACADEMY|أكاديمي\nRAWNAK ACADE
     else{if(current!==prev.rendered&&current!==prev.source){prev.source=current;prev.rendered=current}src=prev.source}
     var sourceKey=normalize(src),translated=translate(sourceKey);
     var output=locale==='ar'&&translated!==sourceKey?translated:src;
-    if(output===src){prev.rendered=src;return}
+    if(output===src&&current===src){prev.rendered=src;return}
     var match=src.match(/^(\s*)([\s\S]*?)(\s*)$/);
     var target=locale==='ar'&&match?match[1]+output+match[3]:src;
     if(current!==target)n.nodeValue=target;
