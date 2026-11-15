@@ -1,0 +1,543 @@
+
+/* RAWNAK Academy — Eductix-aligned visual redesign, original implementation.
+   Learning-focused layout, white surfaces, deep green editorial type, photo mosaic,
+   bright green CTAs, compact rounded cards and clear section hierarchy.
+   Never imports or reuses Eductix/Framer proprietary template assets or code. */
+.v12-public{
+ --v12-green:#078b46;
+ --v12-green-hover:#006f38;
+ --v12-ink:#063b2d;
+ --v12-forest:#004332;
+ --v12-deep:#003f2f;
+ --v12-muted:#5b746b;
+ --v12-pale:#eaf5ee;
+ --v12-paper:#ffffff;
+ --v12-line:#e2ebe5;
+ --v12-lime:#cce6ba;
+ background:#f9fcfa;
+ color:var(--v12-ink);
+}
+.v12-public .v11-shell{width:min(1300px,calc(100% - 80px))}
+.v12-public .v11-announcement{display:none}
+.v12-public .v11-header{
+ position:sticky;top:12px;z-index:140;
+ width:min(1300px,calc(100% - 80px));
+ min-height:68px;height:auto;
+ margin:15px auto -83px;
+ background:#ffffffee;
+ border:1px solid #e8efe9;border-radius:18px;
+ box-shadow:0 12px 42px #07582b13;
+ -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)
+}
+.v12-public .v11-head-in{
+ min-height:68px;
+ width:calc(100% - 44px);
+ justify-content:space-between;gap:20px;
+}
+.v12-public .v11-brand{color:var(--v12-forest);gap:10px}
+.v12-public .v11-brand img{width:39px;height:39px}
+.v12-public .v11-brand strong{font-size:16px;font-weight:800;letter-spacing:.015em}
+.v12-public .v11-brand small{font-size:8px;letter-spacing:.18em}
+.v12-public .v11-top-links{gap:clamp(12px,2vw,30px)}
+.v12-public .v11-top-links a{color:#2b4b3c;font-size:12px;font-weight:600;transition:color .2s}
+.v12-public .v11-top-links a:hover{color:var(--v12-green)}
+.v12-public .v11-text-button{color:var(--v12-forest)}
+.v12-public .v11-head-cta{
+ border-radius:100px;min-height:41px;
+ padding:5px 6px 5px 18px;gap:12px;
+ background:var(--v12-green);font-size:12px;
+ box-shadow:0 6px 14px #057c3621
+}
+.v12-public .v11-head-cta span:last-child{height:29px;width:29px;background:#ffffff23}
+.v12-public .v11-head-cta:hover{background:var(--v12-green-hover)}
+.v12-public .v11-head-actions .academy-lang-toggle{border-color:#e0ece4;color:var(--v12-forest)}
+/* Eductix-style hero: two main areas, with right-side asymmetrical learning mosaic. */
+.v12-public .v12-hero{
+ padding:132px 0 0;
+ overflow:hidden;
+ background-color:#fafcfb;
+ background-image:
+ linear-gradient(to right,#d8eade3d 1px,transparent 1px),
+ linear-gradient(to bottom,#d8eade3d 1px,transparent 1px),
+ radial-gradient(ellipse at 97% 75%,#9fdbb08a 0%,#e4f4e94d 30%,transparent 63%);
+ background-size:56px 56px,56px 56px,auto;
+ color:var(--v12-ink);
+}
+.v12-public .v12-hero:before{
+ content:"";pointer-events:none;position:absolute;
+ right:-16%;bottom:-45%;width:750px;height:740px;
+ background:radial-gradient(circle,#11a56332,transparent 67%);
+ border-radius:50%;
+}
+.v12-public .v12-hero-shell{position:relative;z-index:1}
+.v12-public .v12-hero-topline{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:20px;padding:0 0 23px;
+ color:#467c5c;font:700 10px/1.4 var(--font-body);
+ letter-spacing:.13em;
+}
+.v12-public .v12-hero-topline span:last-child{color:#539f71}
+.v12-public .v12-hero-grid{
+ display:grid;
+ grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+ gap:clamp(25px,4vw,66px);
+ align-items:center;
+ padding-bottom:60px;
+}
+.v12-public .v12-hero-copy{
+ display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+ min-width:0;padding:20px 0 15px;
+}
+.v12-public .v12-kicker{
+ font:750 11px var(--font-body);letter-spacing:.14em;
+ color:#40885a;text-transform:uppercase;
+ display:flex;gap:8px;align-items:center;
+}
+.v12-public .v12-kicker:before{
+ content:'';display:block;height:7px;width:7px;background:#11a85a;border-radius:50%;
+ box-shadow:0 0 0 5px #b8e9ca66;
+}
+.v12-public .v12-kicker span{color:#66967e}
+.v12-public .v12-hero-copy h1{
+ font-family:var(--font-display);
+ font-size:clamp(55px,5.6vw,89px);
+ font-weight:780;letter-spacing:-.078em;line-height:1.035;
+ margin:22px 0 23px;
+ max-width:740px;text-wrap:balance;color:var(--v12-ink);
+}
+.v12-public .v12-hero-copy h1 span{display:inline;color:var(--v12-ink)}
+.v12-public .v12-hero-copy>p{
+ max-width:495px;
+ font:500 clamp(14px,1.1vw,16px)/1.85 var(--font-body);
+ color:#648075;margin:0 0 25px;
+}
+.v12-public .v12-hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.v12-public .v12-button{
+ display:inline-flex;align-items:center;justify-content:space-between;
+ min-height:48px;gap:18px;padding:6px 7px 6px 20px;
+ border:1px solid transparent;border-radius:100px;
+ background:var(--v12-green);color:#fff;
+ font:750 13px/1.1 var(--font-body);
+ box-shadow:0 7px 20px #0a8d4921;
+ transition:background .26s,box-shadow .26s,transform .26s;
+}
+.v12-public .v12-button>span:last-child{
+ height:34px;width:34px;display:grid;place-items:center;
+ background:#ffffff2c;color:#fff;border-radius:50%;
+ font-size:18px;transition:transform .25s
+}
+.v12-public .v12-button:hover{
+ background:var(--v12-green-hover);transform:translateY(-2px);
+ box-shadow:0 12px 27px #0b844533
+}
+.v12-public .v12-button:hover>span:last-child{transform:rotate(40deg)}
+.v12-public .v12-secondary{
+ min-height:48px;display:inline-flex;align-items:center;justify-content:space-between;
+ gap:13px;border:1px solid #bed7c7;border-radius:100px;
+ background:#ffffffc6;padding:10px 18px;color:#296345;
+ font:700 12px var(--font-body);transition:background .25s
+}
+.v12-public .v12-secondary:hover{background:#edf7ef}
+.v12-public .v12-growth-note{
+ display:flex;align-items:center;gap:12px;max-width:385px;
+ margin-top:clamp(45px,8vw,112px);border:1px solid #dfeae1;
+ border-radius:14px;background:#ffffffdc;
+ box-shadow:0 10px 30px #1e59380c;
+ padding:12px 14px 12px 12px;
+}
+.v12-public .v12-growth-note .v12-growth-icon{
+ width:45px;height:45px;flex:none;display:grid;place-items:center;
+ background:#e1f2e6;color:#088e45;border-radius:50%;font-size:20px;
+}
+.v12-public .v12-growth-note>span:nth-child(2){display:grid;gap:4px;min-width:0}
+.v12-public .v12-growth-note strong{font:750 13px var(--font-body);color:var(--v12-ink)}
+.v12-public .v12-growth-note small{font:500 10px/1.5 var(--font-body);color:#728a7e}
+.v12-public .v12-growth-note>b{margin-inline-start:auto;color:#168a50;font-size:19px;font-weight:600}
+.v12-public .v12-mosaic{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:0;min-height:560px}
+.v12-public .v12-mosaic-column{min-width:0;display:flex;flex-direction:column;gap:10px}
+.v12-public .v12-mosaic-left{transform:translateY(15px)}
+.v12-public .v12-mosaic-right{transform:translateY(-12px)}
+.v12-public .v12-mosaic-image{
+ position:relative;overflow:hidden;margin:0;
+ border-radius:17px;background:#d3e4d8;isolation:isolate
+}
+.v12-public .v12-mosaic-image img{
+ width:100%;height:100%;display:block;object-fit:cover;
+ transition:transform .85s cubic-bezier(.19,1,.22,1);
+}
+.v12-public .v12-mosaic-image:hover img{transform:scale(1.045)}
+.v12-public .v12-person-one{height:251px}
+.v12-public .v12-person-one img{object-position:50% 29%}
+.v12-public .v12-classroom{height:198px}
+.v12-public .v12-classroom:after{
+ content:'';position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(180deg,transparent 50%,#0008);
+}
+.v12-public .v12-classroom figcaption{
+ position:absolute;inset-inline-start:12px;inset-inline-end:12px;
+ bottom:10px;color:white;z-index:2;
+ display:flex;justify-content:space-between;align-items:center;gap:5px;
+ font:750 12px/1.3 var(--font-body);text-shadow:0 1px 4px #0007
+}
+.v12-public .v12-classroom figcaption span{font-size:18px}
+.v12-public .v12-person-two{height:352px}
+.v12-public .v12-person-two img{object-position:50% 25%}
+.v12-public .v12-promise{
+ display:flex;flex-direction:column;justify-content:center;min-height:134px;
+ border-radius:17px;background:#0a984c;color:white;
+ padding:18px 19px;gap:7px;position:relative;overflow:hidden;
+}
+.v12-public .v12-promise:after{
+ content:'';position:absolute;right:-36px;top:-60px;width:130px;height:130px;
+ border:1px solid #ffffff3f;border-radius:50%;
+}
+.v12-public .v12-promise-spark{
+ display:grid;place-items:center;position:absolute;top:15px;right:15px;
+ height:25px;width:25px;border:1px solid #ffffff75;
+ border-radius:50%;font-size:13px
+}
+.v12-public .v12-promise strong{
+ font:750 clamp(16px,1.6vw,21px)/1.27 var(--font-display);
+ max-width:200px;letter-spacing:-.035em;position:relative;z-index:1
+}
+.v12-public .v12-promise small{
+ font:500 11px/1.55 var(--font-body);max-width:200px;color:#f2fff6e0
+}
+.v12-public .v12-metric{
+ display:flex;flex-direction:column;justify-content:center;
+ min-height:151px;border-radius:17px;background:#004534;color:white;
+ padding:15px 20px;
+}
+.v12-public .v12-metric>strong{
+ font:750 clamp(45px,5vw,74px)/.92 var(--font-display);
+ letter-spacing:-.09em;
+}
+.v12-public .v12-metric>strong span{color:#3dc978;font-size:25px;vertical-align:top;margin-inline-start:7px}
+.v12-public .v12-metric>span{font:750 12px var(--font-body);margin-top:7px}
+.v12-public .v12-metric>small{font:500 10px/1.5 var(--font-body);margin-top:5px;color:#b5d9c4}
+.v12-public .v12-hero-bottom{
+ border-top:1px solid #dceee1;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:15px;padding:23px 0 28px;color:#6a8b7a;
+}
+.v12-public .v12-hero-bottom>span{
+ font:650 11px/1.4 var(--font-body);white-space:nowrap;
+}
+.v12-public .v12-trust-pills{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.v12-public .v12-trust-pills>span{
+ padding:9px 14px;background:#ffffffa6;border:1px solid #d6e7db;
+ border-radius:100px;color:#4b8260;font:750 10px var(--font-body);
+}
+/* Additional structured learning sections inspired by Eductix information architecture. */
+.v12-public .v12-section-head{
+ display:grid;grid-template-columns:1fr minmax(220px,.6fr);
+ align-items:end;gap:30px;margin-bottom:35px
+}
+.v12-public .v12-section-head h2{
+ font-size:clamp(44px,5.1vw,75px);font-weight:760;
+ line-height:1.07;letter-spacing:-.065em;
+ color:var(--v12-ink);margin:16px 0 0
+}
+.v12-public .v12-section-head h2 em{
+ font-family:var(--font-serif);font-weight:400;color:#0e914e;
+ font-style:italic;letter-spacing:-.02em
+}
+.v12-public .v12-eyebrow{
+ font:750 11px/1.5 var(--font-body);letter-spacing:.12em;
+ color:#178d55;
+}
+.v12-public .v12-section-head>p{
+ max-width:440px;color:#617b6d;font:500 15px/1.9 var(--font-body);margin:0
+}
+.v12-public .v12-outcomes{background:#f6faf7}
+.v12-public .v12-outcomes-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.v12-public .v12-outcome{
+ min-width:0;min-height:275px;display:flex;flex-direction:column;
+ border:1px solid #e0eae2;border-radius:19px;
+ background:white;padding:24px 23px;
+ transition:transform .3s,box-shadow .3s
+}
+.v12-public .v12-outcome:hover{transform:translateY(-5px);box-shadow:0 15px 35px #0e683017}
+.v12-public .v12-outcome-number{font:750 11px var(--font-body);color:#7aa78a}
+.v12-public .v12-outcome-icon{
+ display:grid;place-items:center;width:50px;height:50px;
+ border-radius:14px;background:#dbf2e3;color:#018c4b;
+ font-size:26px;margin:29px 0 20px;
+}
+.v12-public .v12-outcome h3{
+ font:750 clamp(17px,1.45vw,23px)/1.3 var(--font-display);
+ color:var(--v12-ink);margin:0 0 9px;letter-spacing:-.04em;
+}
+.v12-public .v12-outcome p{
+ font:500 12px/1.75 var(--font-body);color:#7a8b80;margin:0
+}
+.v12-public .v12-learning-options{background:#fff}
+.v12-public .v12-plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.v12-public .v12-plan{
+ border:1px solid #deebe2;background:#fbfdfb;border-radius:20px;
+ min-height:475px;padding:30px;
+ display:flex;flex-direction:column;
+}
+.v12-public .v12-plan.is-featured{
+ background:#004633;border-color:#004633;color:white;
+ box-shadow:0 23px 46px #054a2d22;transform:translateY(-8px)
+}
+.v12-public .v12-plan-id{
+ font:750 10px var(--font-body);letter-spacing:.14em;color:#218d59;
+}
+.v12-public .v12-plan.is-featured .v12-plan-id{color:#98e9b4}
+.v12-public .v12-plan h3{
+ font:750 clamp(27px,2.8vw,39px)/1.2 var(--font-display);
+ letter-spacing:-.045em;margin:28px 0 9px
+}
+.v12-public .v12-plan p{
+ font:500 13px/1.8 var(--font-body);color:#6f8677;margin:0 0 25px;
+ min-height:70px
+}
+.v12-public .v12-plan.is-featured p{color:#cae1d2}
+.v12-public .v12-plan ul{
+ list-style:none;padding:0;margin:0 0 32px;display:grid;gap:16px;
+ font:600 12px/1.6 var(--font-body)
+}
+.v12-public .v12-plan li{display:flex;align-items:flex-start;gap:12px}
+.v12-public .v12-plan li b{color:#098b45;flex:none}
+.v12-public .v12-plan.is-featured li b{color:#87e2a4}
+.v12-public .v12-plan .v12-button{
+ margin-top:auto;width:100%;min-height:50px;
+}
+.v12-public .v12-plan.is-featured .v12-button{
+ background:#f3fff5;color:#005039
+}
+.v12-public .v12-plan.is-featured .v12-button>span:last-child{
+ background:#c6efd4;color:#085e36
+}
+.v12-public .v12-plan-note{
+ font:500 11px/1.6 var(--font-body);color:#738d7d;margin:22px 0 0
+}
+/* Tie the full site to the Eductix direction, replacing V10 cinematic excess. */
+.v12-public .v11-ticker{
+ height:45px;background:white;color:#3b8d57;
+ border-bottom:1px solid #e0ebe1;
+}
+.v12-public .v11-ticker span{font-size:10px;letter-spacing:.14em}
+.v12-public .v11-ticker b{font-size:15px;color:#24a75e}
+.v12-public .v11-section{padding:clamp(80px,8vw,122px) 0}
+.v12-public .v11-mission{background:#fff}
+.v12-public .v11-mission h2{font-size:clamp(43px,5.4vw,77px);color:var(--v12-ink)}
+.v12-public .v11-mission h2 em{color:#05964f}
+.v12-public .v11-mission p{font-size:17px;color:#617d6d}
+.v12-public .v11-mission-steps strong{color:var(--v12-ink)}
+.v12-public .v11-pathways{background:#f8fbf9}
+.v12-public .v11-heading h2{color:var(--v12-ink);font-size:clamp(42px,5vw,72px)}
+.v12-public .v11-heading h2 em{color:#008c48}
+.v12-public .v11-heading p{color:#688477}
+.v12-public .v11-filters button{
+ background:white;border-color:#d7e8da;color:#356d4a;border-radius:100px;
+}
+.v12-public .v11-filters button:is(:hover,[aria-pressed=true]){
+ background:#078b46;color:#fff;border-color:#078b46
+}
+.v12-public .v11-path-card{
+ border-radius:17px;background:white;border-color:#e1eee5;
+ box-shadow:0 5px 19px #00463308
+}
+.v12-public .v11-path-photo{border-radius:14px 14px 0 0}
+.v12-public .v11-path-photo img{filter:saturate(.83)}
+.v12-public .v11-path-symbol{background:#e3f4e9;color:#00994e}
+.v12-public .v11-path-body h3{color:var(--v12-ink)}
+.v12-public .v11-path-end b{color:#02954b}
+.v12-public .v11-process{background:white}
+.v12-public .v11-step.is-active{color:#087b47}
+.v12-public .v11-step:hover{background:#f1f9f2}
+.v12-public .v11-process-picture{border-radius:18px}
+.v12-public .v11-cinematic{
+ min-height:570px;
+ width:min(1300px,calc(100% - 80px));
+ margin:50px auto;border-radius:23px;
+}
+.v12-public .v11-cinematic h2{font-size:clamp(50px,6.6vw,97px)}
+.v12-public .v11-roles{background:#f8fbf8}
+.v12-public .v11-role-tabs{border-color:#cfe0d2}
+.v12-public .v11-role-tab[aria-pressed=true]{
+ background:#e3f4e9;border-color:#088a4e;color:#045636
+}
+.v12-public .v11-role-panel{
+ border-radius:18px;overflow:hidden;background:#def0e5;color:var(--v12-ink);
+ border:1px solid #cfe6d5;
+}
+.v12-public .v11-role-info .v11-overline{color:#007b42}
+.v12-public .v11-role-info h3{color:var(--v12-ink)}
+.v12-public .v11-role-info p{color:#4c7560}
+.v12-public .v11-role-star{color:#03a95c}
+.v12-public .v11-role-values{color:#4c785f}
+.v12-public .v11-role-info>.v11-button{background:#068746;color:#fff}
+.v12-public .v11-role-info>small{color:#557d63}
+.v12-public .v11-role-photo{border-radius:0}
+.v12-public .v11-features{background:white}
+.v12-public .v11-feature{border-radius:18px}
+.v12-public .v11-f-focus{background:#005039}
+.v12-public .v11-f-rewards{background:#dcf4e2}
+.v12-public .v11-f-book{background:#f2ece1}
+.v12-public .v11-f-roadmap{background:#e4f2e7}
+.v12-public .v11-books{background:#f8fbf8}
+.v12-public .v11-book-display{border-radius:22px}
+.v12-public .v11-big-book{background:linear-gradient(145deg,#007543,#004933)}
+.v12-public .v11-teaching{background:#ebf7ef;color:var(--v12-ink)}
+.v12-public .v11-teaching-copy h2{color:var(--v12-ink)}
+.v12-public .v11-teaching-copy h2 em{color:#058847}
+.v12-public .v11-teaching-copy .v11-overline{color:#07894b}
+.v12-public .v11-teaching-copy p{color:#5c7d6a}
+.v12-public .v11-teaching-copy>small{color:#608774}
+.v12-public .v11-teaching-copy .v11-button{background:#048b48;color:white}
+.v12-public .v11-teacher-visual{border-radius:17px}
+.v12-public .v11-faq{background:#f7fbf8}
+.v12-public .v11-faq-items{border-color:#d7e6da}
+.v12-public .v11-faq-items summary strong{color:var(--v12-ink)}
+.v12-public .v11-final{background:#047b46;color:white}
+.v12-public .v11-final h2{color:white}
+.v12-public .v11-final h2 em{color:#c2edc9}
+.v12-public .v11-final .v11-overline{color:#b1e5c2}
+.v12-public .v11-final p{color:#d3eedb}
+.v12-public .v11-final-decoration{color:#0d9d59}
+.v12-public .v11-final .v11-button{background:white;color:#08663c}
+.v12-public .v11-footer{background:#003f30}
+.v12-public .v11-footer-top{border-color:#ffffff2e}
+/* Keep authenticated student/educator/owner spaces coherent with Eductix colors. */
+html:not([data-theme=arctic]) .v7-portal{
+ --v11-role:#078747;--v11-tint:#def3e4;
+}
+html:not([data-theme=arctic]) .v7-portal.v7-instructor{
+ --v11-role:#077c60;--v11-tint:#ddf3ea;
+}
+html:not([data-theme=arctic]) .v7-portal.v7-owner{
+ --v11-role:#306e60;--v11-tint:#e0f0e9;
+}
+html:not([data-theme=arctic]) .v7-portal.v7-owner .v11-dashboard-hub{
+ background:linear-gradient(125deg,#054936,#0b7951)
+}
+html:not([data-theme=arctic]) .v7-portal .v11-dashboard-hub{
+ background:linear-gradient(125deg,#054c36,#06884b);
+}
+html:not([data-theme=arctic]) .v7-portal .v9-hero{
+ background:linear-gradient(125deg,#064b38,#049057)!important
+}
+/* Arabic stays genuinely RTL with established Arabic typography. */
+html[lang=ar] .v12-public{font-family:var(--font-body)}
+html[lang=ar] .v12-public .v12-hero-copy h1{
+ font-family:var(--font-display);
+ font-size:clamp(45px,5.3vw,78px);
+ letter-spacing:0;line-height:1.5
+}
+html[lang=ar] .v12-public .v12-hero-copy>p{line-height:1.95}
+html[lang=ar] .v12-public .v12-kicker,
+html[lang=ar] .v12-public .v12-hero-topline,
+html[lang=ar] .v12-public .v12-eyebrow,
+html[lang=ar] .v12-public .v12-trust-pills,
+html[lang=ar] .v12-public .v12-plan-id{letter-spacing:0}
+html[lang=ar] .v12-public .v12-promise strong,
+html[lang=ar] .v12-public .v12-metric>strong{font-family:var(--font-display);letter-spacing:0;line-height:1.35}
+html[lang=ar] .v12-public :is(.v12-section-head h2,.v12-outcome h3,.v12-plan h3){
+ font-family:var(--font-display);letter-spacing:0;line-height:1.5
+}
+html[lang=ar] .v12-public .v12-section-head h2 em{font-style:normal;font-family:var(--font-editorial)}
+html[lang=ar] .v12-public :is(.v12-outcome p,.v12-plan p){line-height:1.92}
+html[dir=rtl] .v12-public{text-align:right;direction:rtl}
+html[dir=rtl] .v12-public .v12-hero-copy{align-items:flex-start}
+html[dir=rtl] .v12-public .v12-mosaic-left{transform:translateY(15px)}
+html[dir=rtl] .v12-public .v12-mosaic-right{transform:translateY(-12px)}
+html[dir=rtl] .v12-public .v12-hero:before{left:-16%;right:auto}
+html[dir=rtl] .v12-public .v12-hero-actions button{direction:rtl}
+html[dir=rtl] .v12-public .v11-cinematic:before{
+ background:linear-gradient(270deg,#071c18e6,#102b25a1 60%,#10241d52)
+}
+@media(max-width:1100px){
+ .v12-public .v11-shell{width:calc(100% - 64px)}
+ .v12-public .v11-header{width:calc(100% - 64px)}
+ .v12-public .v12-hero-grid{gap:25px}
+ .v12-public .v12-hero-copy h1{font-size:clamp(46px,5.9vw,74px)}
+ .v12-public .v12-person-one{height:230px}
+ .v12-public .v12-person-two{height:334px}
+ .v12-public .v12-promise{min-height:129px}
+ .v12-public .v12-metric{min-height:142px}
+ .v12-public .v12-mosaic{min-height:0}
+ .v12-public .v12-cinematic{width:calc(100% - 64px)}
+}
+@media(max-width:820px){
+ .v12-public .v11-shell{width:calc(100% - 40px)}
+ .v12-public .v11-header{width:calc(100% - 40px);margin:10px auto -78px;top:7px}
+ .v12-public .v12-hero{padding-top:117px}
+ .v12-public .v12-hero-grid{grid-template-columns:1fr;gap:35px}
+ .v12-public .v12-hero-copy{padding:10px 0 0}
+ .v12-public .v12-hero-copy h1{font-size:clamp(48px,8.9vw,79px)}
+ .v12-public .v12-growth-note{margin-top:32px}
+ .v12-public .v12-mosaic{width:min(590px,100%);justify-self:center}
+ .v12-public .v12-person-one{height:285px}
+ .v12-public .v12-promise{min-height:115px}
+ .v12-public .v12-metric{min-height:150px}
+ .v12-public .v12-classroom{height:210px}
+ .v12-public .v12-person-two{height:360px}
+ .v12-public .v12-outcomes-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v12-public .v12-plan-grid{grid-template-columns:1fr}
+ .v12-public .v12-plan.is-featured{transform:none}
+ .v12-public .v12-plan{min-height:0;padding:27px}
+ .v12-public .v12-plan p{min-height:0}
+ .v12-public .v11-cinematic{width:calc(100% - 40px);margin:25px auto;min-height:530px}
+}
+@media(max-width:580px){
+ .v12-public .v11-shell{width:calc(100% - 30px)}
+ .v12-public .v11-header{width:calc(100% - 22px);top:5px}
+ .v12-public .v11-head-in{width:calc(100% - 20px);min-height:65px}
+ .v12-public .v11-header{border-radius:14px}
+ .v12-public .v12-hero{padding-top:100px;background-size:33px 33px,33px 33px,auto}
+ .v12-public .v12-hero-topline{font-size:8px;padding-bottom:11px}
+ .v12-public .v12-hero-copy h1{font-size:clamp(40px,10.6vw,62px);line-height:1.1;margin:20px 0 16px}
+ .v12-public .v12-hero-copy>p{font-size:13px;max-width:360px}
+ .v12-public .v12-growth-note{width:100%;margin-top:28px}
+ .v12-public .v12-hero-grid{gap:25px;padding-bottom:35px}
+ .v12-public .v12-mosaic{gap:7px}
+ .v12-public .v12-mosaic-column{gap:7px}
+ .v12-public .v12-mosaic-image{border-radius:11px}
+ .v12-public .v12-person-one{height:190px}
+ .v12-public .v12-promise{min-height:110px;padding:12px}
+ .v12-public .v12-promise strong{font-size:15px}
+ .v12-public .v12-promise small{font-size:9px}
+ .v12-public .v12-promise-spark{height:18px;width:18px;top:9px;right:9px}
+ .v12-public .v12-metric{min-height:115px;padding:12px}
+ .v12-public .v12-metric>strong{font-size:43px}
+ .v12-public .v12-metric>span{font-size:11px}
+ .v12-public .v12-metric>small{font-size:9px}
+ .v12-public .v12-classroom{height:152px}
+ .v12-public .v12-classroom figcaption{font-size:10px;inset-inline-start:9px;inset-inline-end:9px}
+ .v12-public .v12-person-two{height:270px}
+ .v12-public .v12-hero-bottom{display:block}
+ .v12-public .v12-hero-bottom>span{display:block;margin-bottom:12px}
+ .v12-public .v12-trust-pills{justify-content:flex-start}
+ .v12-public .v12-trust-pills>span{font-size:9px;padding:7px 10px}
+ .v12-public .v12-section-head{display:block;margin-bottom:25px}
+ .v12-public .v12-section-head h2{font-size:clamp(37px,9vw,53px)}
+ .v12-public .v12-section-head>p{margin-top:14px;font-size:13px}
+ .v12-public .v12-outcomes-grid{gap:10px}
+ .v12-public .v12-outcome{min-height:225px;padding:17px}
+ .v12-public .v12-outcome-icon{margin:19px 0 15px}
+ .v12-public .v12-outcome h3{font-size:16px}
+ .v12-public .v12-outcome p{font-size:11px}
+ .v12-public .v11-cinematic{width:calc(100% - 30px);min-height:500px;border-radius:16px}
+ .v12-public .v11-cinematic h2{font-size:clamp(43px,11vw,62px)}
+}
+@media(max-width:360px){
+ .v12-public .v12-mosaic{gap:5px}
+ .v12-public .v12-mosaic-column{gap:5px}
+ .v12-public .v12-person-one{height:170px}
+ .v12-public .v12-classroom{height:138px}
+ .v12-public .v12-person-two{height:248px}
+ .v12-public .v12-promise{min-height:99px}
+ .v12-public .v12-metric{min-height:109px}
+ .v12-public .v12-outcomes-grid{grid-template-columns:1fr}
+ .v12-public .v12-outcome{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .v12-public .v12-mosaic-image img,
+ .v12-public .v12-button,
+ .v12-public .v12-outcome{transition:none;transform:none}
+ .v12-public .v12-plan.is-featured{transform:none}
+}
