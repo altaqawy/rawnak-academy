@@ -640,3 +640,80 @@ html[lang="ar"] .v12-portal .v7-student-wrap .page-top h1{line-height:1.5;letter
  }
  .v12-portal .v9-bottom-nav{backdrop-filter:none;-webkit-backdrop-filter:none}
 }
+
+
+/* Guest login, free registration and instructor application entry points.
+   These belong to the same Academy brand, not to an older unrelated theme. */
+.v7-public:not(.v11-public){
+ --brand:#078b46;--brand-ink:#fff;--brand-pale:#e6f5e9;
+ --ink:#083d2b;--paper:#fff;--surface:#fff;--muted:#647c6b;
+ --stroke:#dfebe1;background:#f9fcfa;color:#083d2b;
+}
+.v7-public:not(.v11-public) .v7-guest-head{
+ background:color-mix(in srgb,#fff 95%,transparent);
+ backdrop-filter:blur(17px);-webkit-backdrop-filter:blur(17px);
+ border-bottom:1px solid #e1ece4;
+ box-shadow:0 5px 20px #0a57310b;
+}
+.v7-public:not(.v11-public) .v7-guest-head .logo-text strong{
+ font-family:var(--font-display);letter-spacing:.02em;color:#083d2b
+}
+.v7-public:not(.v11-public) .v7-guest-head .logo-text small{color:#078b46}
+.v7-public:not(.v11-public) .v7-guest-links a{color:#365c48}
+.v7-public:not(.v11-public) .v7-guest-links a:hover{color:#078b46}
+.v7-public:not(.v11-public) .v7-guest-actions .btn.primary{
+ background:#078b46;color:#fff;border-radius:999px
+}
+.v7-public:not(.v11-public) .v7-guest-actions .btn.outline{
+ border-color:#d2e7d8;color:#087b46;border-radius:999px
+}
+.v7-public:not(.v11-public) :is(.v7-form-wrap,.v7-guest-login){
+ background-color:#f9fcfa;
+ background-image:
+ linear-gradient(to right,#bee5cb38 1px,transparent 1px),
+ linear-gradient(to bottom,#bee5cb38 1px,transparent 1px),
+ radial-gradient(circle at 84% 20%,#c7ecd040,transparent 58%);
+ background-size:43px 43px,43px 43px,auto;
+ padding:64px 20px 82px;min-height:calc(100vh - 79px)
+}
+.v7-public:not(.v11-public) .v7-auth-card{
+ background:#fff;border:1px solid #e1ece4;border-radius:22px;
+ box-shadow:0 22px 75px #075e3224;padding:clamp(23px,3.8vw,45px);
+ max-width:575px;width:100%;color:#073d2d
+}
+.v7-public:not(.v11-public) .v7-signup-badge{
+ color:#078b46;letter-spacing:.06em;font-size:10px;font-weight:850
+}
+.v7-public:not(.v11-public) .v7-auth-card h1{
+ font:800 clamp(32px,4.2vw,52px)/1.24 var(--font-display);
+ letter-spacing:-.055em;color:#063d2c
+}
+.v7-public:not(.v11-public) .v7-auth-card p{color:#647a6a;line-height:1.88}
+.v7-public:not(.v11-public) .v7-auth-fields label{color:#355a46;font-size:12px}
+.v7-public:not(.v11-public) .v7-auth-fields :is(input,select,textarea){
+ background:#fafdfa;color:#0a442d;border:1px solid #d7e8dd;
+ border-radius:12px;min-height:46px;font-family:var(--font-body)
+}
+.v7-public:not(.v11-public) .v7-auth-fields :is(input,select,textarea):focus-visible{
+ border-color:#078b46;outline:3px solid #18a75e2b
+}
+.v7-public:not(.v11-public) .v7-auth-card .btn.primary{
+ background:#078b46;color:#fff;border-radius:100px;min-height:49px
+}
+.v7-public:not(.v11-public) .v7-auth-card .btn.outline{
+ border:1px solid #d2e8d8;color:#078b46;background:white;border-radius:100px
+}
+.v7-public:not(.v11-public) .v7-auth-card .btn.outline:hover{background:#eaf7ee}
+.v7-public:not(.v11-public) .v7-auth-links a{color:#078b46}
+.v7-public:not(.v11-public) .v7-legal{color:#748d7c!important}
+.v7-public:not(.v11-public) .v7-public-footer{background:#034732}
+html[lang="ar"] .v7-public:not(.v11-public) .v7-auth-card h1{
+ font-family:var(--font-display);letter-spacing:0;line-height:1.55
+}
+html[lang="ar"] .v7-public:not(.v11-public) .v7-auth-card p{line-height:1.95}
+@media(max-width:600px){
+ .v7-public:not(.v11-public) .v7-guest-inner{padding-inline:15px}
+ .v7-public:not(.v11-public) .v7-auth-card{padding:24px 18px}
+ .v7-public:not(.v11-public) .v7-form-two{grid-template-columns:minmax(0,1fr)}
+ .v7-public:not(.v11-public) :is(.v7-form-wrap,.v7-guest-login){padding:35px 13px 65px}
+}
