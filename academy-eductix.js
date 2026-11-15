@@ -121,6 +121,18 @@ function replacePage(){
  let html=prev();
  if(!html.includes('class="v7-public v11-public"'))return html;
  html=html.replace('class="v7-public v11-public"','class="v7-public v11-public v12-public"');
+
+ // Match the reference's simple four-link navigation, while retaining local Academy destinations.
+ const navLinks=locale()==='ar'?
+   [['الرئيسية','mission'],['الكورسات','courses'],['البرامج','learning-options'],['عن رونق','about']]:
+   [['Home','mission'],['Courses','courses'],['Programs','learning-options'],['About Us','about']];
+ const nav='<nav class="v11-top-links" aria-label="'+(locale()==='ar'?'القائمة الرئيسية':'Main navigation')+'">'+
+   navLinks.map(x=>'<a href="#/welcome" data-v7-scroll="'+x[1]+'">'+x[0]+'</a>').join('')+'</nav>';
+ html=html.replace(/<nav class="v11-top-links"[^>]*>[\s\S]*?<\/nav>/,nav);
+ html=html.replace(/<button class="v11-button v11-head-cta" data-nav="signup">[\s\S]*?<span>↗<\/span><\/button>/,
+   '<button class="v11-button v11-head-cta" data-v7-scroll="courses">'+
+   (locale()==='ar'?'استكشف البرامج':'Explore Programs')+' <span>↗</span></button>');
+
  const begin='<section class="v11-hero" id="mission">';
  const stop='<div class="v11-ticker"';
  const from=html.indexOf(begin),to=html.indexOf(stop,from);
