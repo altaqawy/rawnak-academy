@@ -413,3 +413,26 @@ html[lang=ar] .v7-portal .v11-hub-copy h2{font-family:var(--font-display);letter
  .v11-public .v11-path-card:hover{transform:none}
  .v11-public :is(.v11-button,.v11-button-ghost,.v11-path-photo img,.v11-hero-frame img){transition:none}
 }
+
+/* Mobile workspaces — keep role-specific navigation, refresh surfaces and touch rhythm. */
+@media(max-width:820px){
+ .v7-portal{background:color-mix(in srgb,var(--bg) 80%,#dce8de)}
+ .v7-portal .v7-app-top{border-bottom:1px solid color-mix(in srgb,var(--stroke) 75%,#b6cbb9)}
+ .v7-portal .v9-hero{background:linear-gradient(135deg,#163f32,#256549)!important;border-radius:18px!important;box-shadow:0 12px 34px #153b302f!important}
+ .v7-portal.v7-instructor .v9-hero{background:linear-gradient(135deg,#123b37,#2e7568)!important}
+ .v7-portal.v7-owner .v9-hero{background:linear-gradient(135deg,#26344f,#536a8d)!important}
+ .v7-portal .v9-mobile-intro h1{line-height:1.25;letter-spacing:-.045em}
+ .v7-portal .v9-quick-title{margin-top:27px;margin-bottom:14px}
+ .v7-portal .v9-shortcut{border-radius:15px;background:var(--surface);box-shadow:0 8px 23px #19432d0b;transition:transform .24s,box-shadow .24s}
+ .v7-portal .v9-shortcut:active{transform:scale(.975)}
+ .v7-portal .v9-shortcut .v9-icon{border-radius:11px;background:var(--v11-tint);color:var(--v11-role)}
+ .v7-portal .v9-bottom-nav{border-top:1px solid color-mix(in srgb,var(--stroke) 75%,#bad0bc);background:color-mix(in srgb,var(--paper) 94%,transparent);box-shadow:0 -9px 30px #193c290f}
+ .v7-portal .v9-tab{border-radius:10px;font-weight:750}
+ .v7-portal .v9-tab[aria-current=page]{background:var(--v11-tint);color:var(--v11-role)}
+ .v7-portal .v9-menu-sheet{border-radius:24px 24px 0 0}
+ .v7-portal .v9-sheet-grid button{border-radius:13px}
+ .v7-portal .v9-sheet-grid button[aria-current=page]{border-color:var(--v11-role);background:var(--v11-tint)}
+ .v7-portal .v7-panel{border-radius:15px}
+ .v7-portal .v7-app-intro h1{font-weight:780}
+}
+html[lang=ar] .v7-portal .v9-hero h1{line-height:1.5;letter-spacing:0}
