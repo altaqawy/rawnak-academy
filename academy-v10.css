@@ -436,3 +436,30 @@ html[lang=ar] .v7-portal .v11-hub-copy h2{font-family:var(--font-display);letter
  .v7-portal .v7-app-intro h1{font-weight:780}
 }
 html[lang=ar] .v7-portal .v9-hero h1{line-height:1.5;letter-spacing:0}
+
+/* Consistent account-entry aesthetic outside the newly replaced public homepage. */
+.v7-public:not(.v11-public) .v7-guest-head{
+ background:color-mix(in srgb,var(--paper) 93%,#e8efe7);
+ border-bottom:1px solid color-mix(in srgb,var(--stroke) 80%,#b2c7b3);
+}
+.v7-public:not(.v11-public) .v7-auth-card{
+ background:var(--surface);border:1px solid color-mix(in srgb,var(--stroke) 84%,#b6cebc);
+ box-shadow:0 24px 70px #123f2e17;border-radius:23px;
+}
+.v7-public:not(.v11-public) .v7-auth-card h1{
+ font:800 clamp(32px,4.4vw,54px)/1.22 var(--font-display);
+ letter-spacing:-.055em;
+}
+.v7-public:not(.v11-public) .v7-auth-card p{line-height:1.9}
+.v7-public:not(.v11-public) .v7-auth-card input,
+.v7-public:not(.v11-public) .v7-auth-card select,
+.v7-public:not(.v11-public) .v7-auth-card textarea{
+ border-radius:11px;border-color:color-mix(in srgb,var(--stroke) 70%,#bacbbd);
+}
+.v7-public:not(.v11-public) .v7-auth-card :is(input,select,textarea):focus-visible{
+ outline:3px solid color-mix(in srgb,var(--brand) 36%,transparent);outline-offset:2px
+}
+.v7-public:not(.v11-public) .v7-auth-card .btn.primary{
+ border-radius:11px;box-shadow:0 7px 20px color-mix(in srgb,var(--brand) 18%,transparent)
+}
+html[lang=ar] .v7-public:not(.v11-public) .v7-auth-card h1{line-height:1.6;letter-spacing:0}
