@@ -65,7 +65,15 @@ function breadcrumb(role,route){
 }
 function tables(portal){
  portal.querySelectorAll('.v7-table').forEach(function(table){
-   if(table.parentElement&&table.parentElement.classList.contains('v12-table-scroll'))return;
+   var holder=table.parentElement;
+   if(holder&&holder.classList.contains('v12-table-scroll'))return;
+   if(holder&&holder.style&&/auto|scroll/.test(holder.style.overflow||'')){
+     holder.classList.add('v12-table-scroll');
+     holder.setAttribute('role','region');
+     holder.setAttribute('tabindex','0');
+     holder.setAttribute('aria-label',tr('Scrollable table','جدول قابل للتمرير'));
+     return;
+   }
    var box=document.createElement('div');
    box.className='v12-table-scroll';box.setAttribute('role','region');box.setAttribute('tabindex','0');
    box.setAttribute('aria-label',tr('Scrollable table','جدول قابل للتمرير'));
