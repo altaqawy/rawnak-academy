@@ -4,8 +4,8 @@
 
 /* The default Atelier workspace now matches the emerald/white public site.
    An explicitly selected Grove or Arctic appearance still keeps its own palette. */
-html[data-theme="atelier"] .v12-portal,
-html:not([data-theme]) .v12-portal{
+html[data-theme="atelier"]:not([data-appearance="dark"]) .v12-portal,
+html:not([data-theme]):not([data-appearance="dark"]) .v12-portal{
  --bg:#f7fbf8;--paper:#ffffff;--surface:#ffffff;
  --ink:#073e2b;--muted:#637b6b;--stroke:#dcebe1;
  --brand:#078b46;--brand-ink:#ffffff;--brand-pale:#e4f5e9;
@@ -717,3 +717,29 @@ html[lang="ar"] .v7-public:not(.v11-public) .v7-auth-card p{line-height:1.95}
  .v7-public:not(.v11-public) .v7-form-two{grid-template-columns:minmax(0,1fr)}
  .v7-public:not(.v11-public) :is(.v7-form-wrap,.v7-guest-login){padding:35px 13px 65px}
 }
+
+/* The built-in Light/Dark/System switch must still change the actual workspace.
+   In dark mode, use the upstream palette, not the white Atelier defaults. */
+html[data-appearance="dark"] .v12-portal{
+ --v12-shadow:0 10px 31px rgba(0,0,0,.15);
+}
+html[data-appearance="dark"] .v12-portal .v12-workspace-cover{
+ background-image:
+ linear-gradient(to right,color-mix(in srgb,var(--brand) 7%,transparent) 1px,transparent 1px),
+ linear-gradient(to bottom,color-mix(in srgb,var(--brand) 7%,transparent) 1px,transparent 1px);
+ background-color:var(--paper);
+}
+html[data-appearance="dark"] .v12-portal .v12-cover-copy p,
+html[data-appearance="dark"] .v12-portal .v12-cover-note{
+ color:var(--muted)
+}
+html[data-appearance="dark"] .v12-portal .v12-cover-green{
+ background:var(--brand);color:var(--brand-ink)
+}
+html[data-appearance="dark"] .v12-portal .v12-cover-primary{
+ background:var(--brand);color:var(--brand-ink)
+}
+html[data-appearance="dark"] .v12-portal .v12-cover-mini{
+ background:var(--surface);color:var(--ink)
+}
+html[data-appearance="dark"] .v12-portal .v12-table-scroll{border-color:var(--stroke)}
