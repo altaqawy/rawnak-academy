@@ -170,6 +170,7 @@
     if (!link) return;
     event.preventDefault();
     event.stopImmediatePropagation();
+    document.dispatchEvent(new Event('rawnak:section-navigation'));
     sectionTarget = link.dataset.v7Scroll;
     document.querySelectorAll('details.v11-menu[open],details.v8-nav-dropdown[open]').forEach(menu => menu.open = false);
     if (activeRoute() !== 'welcome') navigate('welcome');

@@ -26,11 +26,11 @@ test('language switching restores source text, heading labels and page title', a
   const a = academy(); await a.flush();
   const original = a.document.querySelector('#app h1').getAttribute('aria-label');
   a.run("RawnakAcademyI18n.setLocale('en')"); await a.flush();
-  assert.match(a.document.title, /^RAWNAK Academy/);
+  assert.match(a.document.title, /^RAWNAK ACADEMY/);
   assert.match(a.document.querySelector('#app h1').getAttribute('aria-label'), /Build skills/);
   a.run("RawnakAcademyI18n.setLocale('ar')"); await a.flush();
   assert.equal(a.document.querySelector('#app h1').getAttribute('aria-label'), original);
-  assert.match(a.document.title, /^رونق أكاديمي/);
+  assert.match(a.document.title, /^RAWNAK ACADEMY/);
 });
 
 test('all student, educator and owner routes render without fabricated data', async () => {
@@ -132,4 +132,44 @@ test('entry document executes no inline scripts under its CSP', () => {
   assert.equal([...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)].some(m => m[2].trim()), false);
   assert.match(html, /script-src 'self'/);
   assert.match(html, /form-action 'none'/);
+});
+
+test('English wordmark and alpha-preserving negative footer identity survive locale changes', async () => {
+  const a = academy(); await a.flush();
+  for (const lang of ['ar', 'en', 'ar']) {
+    a.run(`RawnakAcademyI18n.setLocale('${lang}')`); await a.flush();
+    for (const brand of a.document.querySelectorAll('.v15-brand')) {
+      assert.equal(brand.querySelector('strong').textContent, 'RAWNAK');
+      assert.equal(brand.querySelector('small').textContent, 'ACADEMY');
+      assert.equal(brand.getAttribute('dir'), 'ltr');
+      assert.equal(brand.getAttribute('translate'), 'no');
+    }
+    assert.equal(a.document.querySelector('footer .v15-brand img').getAttribute('src'), 'assets/rawnak-academy-negative.svg');
+  }
+  await a.role('student'); await a.visit('student-settings');
+  assert.equal(a.document.querySelector('.v7-sidebar .v15-brand strong').textContent, 'RAWNAK');
+  await a.visit('privacy');
+  assert.ok(a.document.querySelector('.v15-nav'));
+  assert.ok(a.document.querySelector('footer .v15-brand-negative'));
+});
+
+test('Academy mobile panel closes on Escape and section navigation and restores background access', async () => {
+  const a = academy(); await a.flush();
+  const toggle = () => a.document.querySelector('[data-v15-toggle]');
+  const click = el => el.dispatchEvent(new a.context.Event('click', { bubbles: true, cancelable: true }));
+  click(toggle()); await a.flush();
+  assert.equal(toggle().getAttribute('aria-expanded'), 'true');
+  assert.equal(a.document.querySelector('[data-v15-menu]').hidden, false);
+  assert.equal(a.document.querySelector('#app main').inert, true);
+  a.document.dispatchEvent(Object.assign(new a.context.Event('keydown', { bubbles: true }), { key: 'Escape' }));
+  assert.equal(toggle().getAttribute('aria-expanded'), 'false');
+  assert.equal(a.document.querySelector('[data-v15-menu]').hidden, true);
+  assert.equal(a.document.querySelector('#app main').inert, false);
+  click(toggle());
+  click(a.document.querySelector('.v15-menu-panel [data-v7-scroll="courses"]'));
+  await a.flush();
+  assert.equal(toggle().getAttribute('aria-expanded'), 'false');
+  assert.equal(a.document.querySelector('#app main').inert, false);
+  assert.ok(a.calls.scroll.includes('courses'));
+  assert.equal(a.context.document.body.style.overflow, '');
 });

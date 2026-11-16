@@ -21,7 +21,8 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
     if(en&&ar)dictionary.set(en,ar);
   }
   var foldedDictionary=new Map(Array.from(dictionary, function(entry){return [entry[0].toLowerCase(),entry[1]]}));
-  function lookup(s){return dictionary.get(s)||foldedDictionary.get(s.toLowerCase())}
+  function brandName(s){return String(s).replace(/رونق\s+[أا]كاد(?:يم|م)[يى]/g,'RAWNAK ACADEMY')}
+  function lookup(s){if(/^RAWNAK(?:\s+ACADEMY)?$/i.test(s))return s.toUpperCase();return dictionary.get(s)||foldedDictionary.get(s.toLowerCase())}
   var arabicPunctuation={'?':'؟'};
   function normalize(s){return String(s).replace(/\s+/g,' ').trim()}
   function translate(s){
@@ -64,7 +65,7 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
     if(!prev){src=current;prev={source:src,rendered:current};originalNodes.set(n,prev)}
     else{if(current!==prev.rendered&&current!==prev.source){prev.source=current;prev.rendered=current}src=prev.source}
     var sourceKey=normalize(src),translated=translate(sourceKey);
-    var output=locale==='ar'&&translated!==sourceKey?translated:src;
+    var output=brandName(locale==='ar'&&translated!==sourceKey?translated:src);
     if(output===src&&current===src){prev.rendered=src;return}
     var match=src.match(/^(\s*)([\s\S]*?)(\s*)$/);
     var target=locale==='ar'&&match?match[1]+output+match[3]:src;
@@ -82,7 +83,7 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
       var curr=el.getAttribute(a),prev=record[a];
       if(!prev){prev={source:curr,rendered:curr};record[a]=prev}
       else if(curr!==prev.rendered&&curr!==prev.source){prev.source=curr;prev.rendered=curr}
-      var out=locale==='ar'?translate(prev.source):prev.source;
+      var out=brandName(locale==='ar'?translate(prev.source):prev.source);
       if(curr!==out)el.setAttribute(a,out);
       prev.rendered=out;
     }
@@ -141,7 +142,7 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
     root.querySelectorAll('*').forEach(paintAttrs);
     var heading=document.querySelector('#app h1');
     var pageTitle=heading?(heading.getAttribute('aria-label')||heading.textContent).replace(/\s+/g,' ').trim():'';
-    document.title=(locale==='ar'?'رونق أكاديمي':'RAWNAK Academy')+(pageTitle?' · '+pageTitle:'');
+    document.title='RAWNAK ACADEMY'+(pageTitle?' · '+pageTitle:'');
     var description=document.querySelector('meta[name="description"]');
     if(description)description.content=locale==='ar'?'استكشف رونق أكاديمي وأدوات المذاكرة ومساحات الطلاب والمدرسين قبل الإطلاق':'Explore Rawnak Academy, study tools and workspaces for students and educators before launch.';
     painting=false;
