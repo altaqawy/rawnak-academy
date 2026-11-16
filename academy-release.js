@@ -75,6 +75,16 @@
     }
   }
 
+  function arrowIcons() {
+    const angles = { '↗': 0, '↘': 90, '↙': 180, '↖': 270, '→': 45, '↓': 135, '←': 225, '↑': 315 };
+    app.querySelectorAll('span,b,i').forEach(el => {
+      const mark = el.textContent.trim();
+      if (el.children.length || !(mark in angles)) return;
+      el.setAttribute('aria-hidden', 'true');
+      el.innerHTML = '<svg class="v14-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(' + angles[mark] + 'deg)" aria-hidden="true" focusable="false"><path d="M5 19 19 5M7 5h12v12"/></svg>';
+    });
+  }
+
   function imageFallback(img) {
     if (img.classList.contains('v14-image-unavailable')) return;
     img.classList.add('v14-image-unavailable');
@@ -123,6 +133,7 @@
     });
     footer();
     backupCard();
+    arrowIcons();
     app.querySelectorAll('img').forEach(img => {
       img.addEventListener('error', () => imageFallback(img), { once: true });
       if (img.complete && img.naturalWidth === 0) imageFallback(img);

@@ -9,6 +9,7 @@ for (const locale of ['ar', 'en']) {
     assert.equal(a.document.documentElement.lang, locale);
     assert.equal(a.document.documentElement.dir, locale === 'ar' ? 'rtl' : 'ltr');
     assert.equal(a.document.querySelectorAll('#v12-hero-title .v14-word').length > 2, true);
+    assert.ok(a.document.querySelector('.v12-hero-actions .v14-arrow'));
     assert.equal(a.document.querySelector('#v12-hero-title').getAttribute('aria-label').includes(locale === 'ar' ? 'اتعلّم' : 'Build skills'), true);
     for (const link of a.document.querySelectorAll('[data-v7-scroll]')) assert.ok(a.document.getElementById(link.dataset.v7Scroll), link.dataset.v7Scroll);
     for (const route of ['login', 'signup', 'platform', 'privacy', 'support', 'unknown', '%E0%A4%A', 'book/%E0%A4%A']) {
@@ -114,6 +115,8 @@ test('content drafts escape markup instead of executing it', async () => {
   a.submit('#v7-course-form', { name: '<img src=x onerror=alert(1)>', category: 'Design' }); await a.flush();
   assert.equal(a.document.querySelectorAll('img[onerror]').length, 0);
   assert.match(a.document.getElementById('app').textContent, /<img src=x onerror=alert\(1\)>/);
+  a.submit('#v7-course-form', { name: 'Design', category: 'Design' }); await a.flush();
+  assert.ok([...a.document.querySelectorAll('td[translate="no"]')].some(td => td.textContent === 'Design'));
 });
 
 test('reduced motion and saved motion-off expose readable headings', async () => {
