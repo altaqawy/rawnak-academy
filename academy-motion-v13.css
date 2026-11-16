@@ -1,0 +1,207 @@
+/* RAWNAK Academy V13 — real empty states and restrained Framer-style motion.
+   The default is fully readable without JS. Interactions do not block forms. */
+.v13-empty-page{
+ width:min(990px,calc(100% - 38px));margin:35px auto 90px;
+ min-height:365px;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;gap:0;text-align:center;
+ padding:clamp(26px,6vw,70px);
+ background-color:var(--paper,#fff);
+ background-image:linear-gradient(to right,#139b4a0a 1px,transparent 1px),linear-gradient(to bottom,#139b4a0a 1px,transparent 1px);
+ background-size:34px 34px;
+ border:1px solid var(--stroke,#dcebe1);border-radius:24px;
+ color:var(--ink,#083e2c);box-shadow:0 15px 54px #03402b0b;
+}
+.v13-empty-visual{
+ display:grid;place-items:center;margin-bottom:24px;
+ width:75px;height:75px;background:var(--brand-pale,#e5f4e9);
+ border-radius:23px;color:var(--brand,#078b46);font-size:39px;
+ transform:rotate(-9deg);
+}
+.v13-empty-kicker{
+ font:800 10px/1.6 var(--font-body);color:var(--brand,#078b46);
+ letter-spacing:.13em;margin-bottom:13px
+}
+.v13-empty-page h1{
+ font:800 clamp(27px,4vw,48px)/1.23 var(--font-display);letter-spacing:-.045em;
+ color:var(--ink,#093e2e);margin:0 0 12px;text-wrap:balance
+}
+.v13-empty-page p{
+ max-width:600px;color:var(--muted,#687f70);
+ font:500 clamp(13px,1.2vw,16px)/1.85 var(--font-body);margin:0 0 26px
+}
+.v13-empty-page .btn.primary{
+ background:var(--brand,#078b46);color:var(--brand-ink,#fff);
+ min-height:45px;border-radius:100px
+}
+.v13-empty-page small{
+ margin-top:29px;font:500 11px/1.8 var(--font-body);
+ max-width:580px;color:var(--muted,#64796b)
+}
+.v13-data-page{min-width:0}
+.v13-data-page .v7-app-intro{align-items:center;margin-bottom:18px}
+.v13-data-page .v7-app-intro h1{font-size:clamp(30px,3.2vw,50px);line-height:1.22}
+.v13-system-status{
+ display:inline-flex;align-items:center;gap:9px;flex:none;
+ border-radius:100px;background:var(--brand-pale,#e5f5e8);
+ border:1px solid var(--stroke,#dcebe1);color:var(--brand,#0b8c48);
+ font:750 11px/1.35 var(--font-body);padding:12px 14px
+}
+.v13-status-dot{
+ width:8px;height:8px;flex:none;border-radius:50%;background:currentColor;opacity:.75;
+ box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 11%,transparent)
+}
+.v13-data-page .v13-data-notice{margin:0 0 20px}
+.v13-connection-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px
+}
+.v13-connection-card{
+ position:relative;min-width:0;display:flex;align-items:flex-start;flex-direction:column;
+ padding:22px;border:1px solid var(--stroke,#deebe1);
+ background:var(--paper,#fff);border-radius:19px;
+ box-shadow:0 8px 28px #034a2c0a;
+ transition:box-shadow .3s,border-color .3s,transform .3s
+}
+.v13-connection-card:hover{
+ border-color:color-mix(in srgb,var(--brand) 28%,var(--stroke));
+ transform:translateY(-3px);box-shadow:0 16px 33px #034a2c12
+}
+.v13-connection-mark{
+ display:grid;place-items:center;width:45px;height:45px;
+ background:var(--brand-pale,#e5f5e8);color:var(--brand,#098c4c);
+ border-radius:13px;font:750 24px/1 var(--font-display);margin-bottom:22px
+}
+.v13-connection-card h3{
+ color:var(--ink,#0b3d2c);font:750 13px/1.5 var(--font-body);
+ margin:0 0 14px;min-height:38px
+}
+.v13-connection-card>strong{
+ color:var(--ink,#0b3d2c);font:800 clamp(34px,3vw,45px)/1.1 var(--font-display);
+ margin:0 0 7px
+}
+.v13-connection-card>small{
+ font:500 11px/1.6 var(--font-body);color:var(--muted,#637967)
+}
+.v13-data-empty,.v13-next-steps{
+ display:flex;gap:22px;align-items:center;min-height:170px;padding:27px;
+ background:var(--paper,#fff);color:var(--ink,#073b2b);
+ border:1px solid var(--stroke,#dce8df);border-radius:20px;
+ box-shadow:0 8px 28px #034a2c0a
+}
+.v13-data-icon{
+ display:grid;place-items:center;flex:none;width:66px;height:66px;
+ background:var(--brand-pale,#e5f5e8);color:var(--brand,#078c46);
+ border-radius:19px;font:700 31px/1 var(--font-display)
+}
+.v13-data-empty h2,.v13-next-steps h2{
+ color:var(--ink,#073b2b);font:800 clamp(18px,2vw,25px)/1.45 var(--font-display);
+ margin:0 0 9px
+}
+.v13-data-empty p,.v13-next-steps p{
+ color:var(--muted,#637968);font:500 13px/1.9 var(--font-body);
+ max-width:800px;margin:0
+}
+.v13-data-empty button{margin-top:17px}
+.v13-next-steps{display:block}
+.v13-action-links{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:16px 0 13px}
+.v13-next-steps .btn{
+ border-radius:100px;min-height:42px;font-size:12px
+}
+html[lang=ar] :is(.v13-empty-page h1,.v13-data-page .v7-app-intro h1,.v13-data-empty h2,.v13-next-steps h2){
+ font-family:var(--font-display);letter-spacing:0;line-height:1.65
+}
+html[lang=ar] :is(.v13-empty-page p,.v13-data-empty p,.v13-next-steps p){
+ font-family:var(--font-body);line-height:2
+}
+html[lang=ar] .v13-empty-kicker{letter-spacing:0}
+
+/* Page progress bar; visually subtle, never clickable. */
+#rawnak-scroll-progress{
+ position:fixed;left:0;top:0;height:3px;z-index:350;
+ width:100%;transform-origin:left center;transform:scaleX(0);
+ background:linear-gradient(90deg,#068a4e,#9de8aa);pointer-events:none;
+ box-shadow:0 0 8px #028f50a3
+}
+html[dir=rtl] #rawnak-scroll-progress{transform-origin:right center}
+
+/* Motion only activates on observed elements, with safe no-JS visibility. */
+html[data-rawnak-motion=on] .v13-appear{
+ opacity:0;transform:translateY(24px);
+ transition:opacity .68s cubic-bezier(.23,.87,.27,1),transform .68s cubic-bezier(.23,.87,.27,1);
+ transition-delay:var(--v13-stagger,0ms);
+ will-change:opacity,transform
+}
+html[data-rawnak-motion=on] .v13-appear.v13-visible{
+ opacity:1;transform:translateY(0);will-change:auto
+}
+html[data-rawnak-motion=on] .v13-appear.v13-visible:hover{
+ transition-delay:0ms
+}
+/* Cards and navigation: lightweight, purposeful hover behavior. */
+@media(hover:hover) and (pointer:fine){
+ :is(.v12-portal,.v12-public) :is(
+  .v7-statbox,.v7-panel,.v7-toolcard,.v12-launchpad-link,
+  .v12-outcome,.v12-plan,.v11-path-card,.v11-feature,.v13-connection-card
+ ){transition:transform .32s cubic-bezier(.22,1,.36,1),box-shadow .32s,border-color .32s}
+ :is(.v12-portal,.v12-public) :is(
+  .v7-statbox,.v7-panel,.v7-toolcard,.v12-launchpad-link,
+  .v12-outcome,.v12-plan,.v11-path-card,.v11-feature,.v13-connection-card
+ ):hover{box-shadow:0 18px 35px #064b2c13}
+ :is(.v12-portal,.v12-public) :is(.btn,.v12-button,.v11-button,.v12-cover-primary,.v12-cover-secondary) {
+  transition:transform .28s cubic-bezier(.22,1,.36,1),background .27s,box-shadow .27s,border-color .27s
+ }
+ :is(.v12-portal,.v12-public) :is(.btn,.v12-button,.v11-button,.v12-cover-primary,.v12-cover-secondary):hover{
+  transform:translateY(-2px);box-shadow:0 9px 25px #09582e21
+ }
+ :is(.v12-portal,.v12-public) a:not(.logo):hover{text-decoration-thickness:1px}
+ :is(.v12-portal,.v12-public) .v12-cover-photo img{
+  transition:transform 1.15s cubic-bezier(.22,1,.36,1)
+ }
+ :is(.v12-portal,.v12-public) .v12-workspace-cover:hover .v12-cover-photo img{
+  transform:scale(1.045)
+ }
+}
+html[data-rawnak-motion=on] .v12-cover-grid{
+ animation:v13-drift 10s ease-in-out infinite alternate
+}
+html[data-rawnak-motion=on] .v12-cover-green i{
+ animation:v13-float 8s ease-in-out infinite alternate
+}
+html[data-rawnak-motion=on] .v12-public .v12-promise-spark{
+ animation:v13-turn 18s linear infinite
+}
+@keyframes v13-drift{
+ from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-9px) rotate(-1deg)}
+}
+@keyframes v13-float{
+ from{transform:translateY(0) rotate(-8deg)}to{transform:translateY(-13px) rotate(8deg)}
+}
+@keyframes v13-turn{to{transform:rotate(360deg)}}
+@media(max-width:1100px){
+ .v13-connection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v13-data-page .v7-app-intro{flex-wrap:wrap}
+}
+@media(max-width:820px){
+ .v13-empty-page{margin:19px auto 36px;min-height:290px}
+ .v13-data-empty{padding:20px;gap:13px}
+ .v13-connection-card{padding:17px}
+ .v13-data-page .v7-app-intro{align-items:flex-start}
+}
+@media(max-width:540px){
+ .v13-connection-grid{gap:10px}
+ .v13-connection-card{padding:16px 13px}
+ .v13-connection-mark{width:38px;height:38px;margin-bottom:16px}
+ .v13-connection-card h3{font-size:11px}
+ .v13-connection-card>small{font-size:10px}
+ .v13-data-empty{flex-direction:column;align-items:flex-start}
+ .v13-data-empty h2{font-size:19px}
+ .v13-empty-page{width:calc(100% - 26px);padding:27px 18px}
+ .v13-system-status{font-size:10px;max-width:100%}
+}
+@media(max-width:350px){
+ .v13-connection-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-rawnak-motion=on] .v13-appear{opacity:1!important;transform:none!important;transition:none!important;will-change:auto!important}
+ html[data-rawnak-motion=on] :is(.v12-cover-grid,.v12-cover-green i,.v12-promise-spark){animation:none!important}
+ #rawnak-scroll-progress{transition:none}
+}
