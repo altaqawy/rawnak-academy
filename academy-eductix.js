@@ -160,6 +160,20 @@ function replacePage(){
    html=html.slice(0,courseStart)+section+html.slice(courseEnd);
  }
  html=html.replace('<section class="v11-books',outcomes(t)+'<section class="v11-books');
+ // Replace prototype lesson counts and completed-check icons with honest concept visuals.
+ const isArabicHere=locale()==='ar';
+ html=html.replace(/<div class="v11-faux-player">[\s\S]*?<\/div><\/article>/,
+   '<div class="v13-feature-planned"><span aria-hidden="true">✳</span><strong>'+
+     (isArabicHere?'مكان دروسك المستقبلية':'Your future lesson space')+'</strong><small>'+
+     (isArabicHere?'هيظهر المحتوى هنا بعد نشره':'Published lessons will appear here')+
+   '</small></div></article>');
+ html=html.replace(/<div class="v11-map-track">[\s\S]*?<\/div>/,
+   '<div class="v13-feature-planned v13-feature-simple"><span aria-hidden="true">↗</span><strong>'+
+     (isArabicHere?'خطوات واضحة بعد تفعيل الكورسات':'A clear path once courses launch')+
+   '</strong></div>');
+ html=html.replace('VOLUME 01 / SMART LEARNING',
+   isArabicHere?'فكرة مبدئية / كتاب ذكي':'CONCEPT / SMART LEARNING');
+
  html=html.replace('<section class="v11-faq',paths(t)+'<section class="v11-faq');
  html=html.replace('<div class="v11-announcement">','<div class="v11-announcement" data-edu-reference="Eductix-inspired original implementation">');
  return html;
