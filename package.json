@@ -1,0 +1,12 @@
+{
+  "name": "rawnak-academy-preview",
+  "version": "14.0.0",
+  "private": true,
+  "description": "Bilingual Rawnak Academy static preview",
+  "scripts": {
+    "test": "node --test tests/release.test.cjs",
+    "check": "node scripts/check-assets.cjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "linkedom": "0.18.15" }
+}

@@ -24,13 +24,13 @@ const words={
     outcome4:'Smart revision',outcomeDesc4:'Notes, question banks and books connected to learning.',
     pathsOver:'WAYS TO START',pathsHeading:'Your academy.',pathsHeading2:'Your learning style.',
     pathsLead:'Choose the experience that fits your needs. Programs and payments will launch after the Academy is connected.',
-    plan1:'Explore free',planDesc1:'Create your student preview and discover the learning experience.',
-    plan1A:'Student workspace',plan1B:'Sample course discovery',plan1C:'Personal study tools',plan1D:'No payment required',
+    plan1:'Explore free',planDesc1:'Explore the student workspace without creating an account.',
+    plan1A:'Student workspace',plan1B:'Published courses after launch',plan1C:'Personal study tools',plan1D:'No payment required',
     plan2:'Guided learning',planDesc2:'A future home for structured programs and educator-led teaching.',
     plan2A:'Recorded learning paths',plan2B:'Educator support',plan2C:'Assignments and reviews',plan2D:'Available after launch',
     plan3:'Academic partners',planDesc3:'A planned workspace for educators and institutions to build programs.',
     plan3A:'Educator onboarding',plan3B:'Course production',plan3C:'Smart book companion',plan3D:'Approval required',
-    start:'Start free',learn:'Explore the preview',teach:'Apply to teach',
+    start:'Explore the workspace',learn:'Explore the preview',teach:'Apply to teach',
     noReal:'Concept preview only · This is not a published course catalog or active pricing plan',
     trial:'Prototype interface · No live enrollment, payment or learner statistics',
     noPartners:'Built around learning, not imaginary achievements'
@@ -51,13 +51,13 @@ const words={
     outcome4:'مراجعة ذكية',outcomeDesc4:'ملاحظات وبنوك أسئلة وكتب مرتبطة بالدروس.',
     pathsOver:'طرق تبدأ بيها',pathsHeading:'أكاديميتك.',pathsHeading2:'بطريقتك.',
     pathsLead:'اختار تجربة التعلّم اللي تناسبك، الكورسات والمدفوعات الفعلية هتكون بعد تفعيل النظام.',
-    plan1:'ابدأ مجانًا',planDesc1:'أنشئ حساب طالب تجريبي واستكشف تجربة الأكاديمية.',
-    plan1A:'مساحة الطالب',plan1B:'استكشاف الكورسات التجريبية',plan1C:'أدوات مذاكرة شخصية',plan1D:'من غير أي دفع',
+    plan1:'ابدأ مجانًا',planDesc1:'استكشف مساحة الطالب من غير إنشاء حساب',
+    plan1A:'مساحة الطالب',plan1B:'الكورسات بعد الإطلاق',plan1C:'أدوات مذاكرة شخصية',plan1D:'من غير أي دفع',
     plan2:'التعلّم بإشراف',planDesc2:'مساحة مستقبلية لبرامج تعليمية منظمة بإشراف مدرسين ومتخصصين.',
     plan2A:'مسارات مسجلة',plan2B:'متابعة عضو هيئة التدريس',plan2C:'تكليفات ومراجعات',plan2D:'بعد الإطلاق',
     plan3:'الشراكة التعليمية',planDesc3:'مساحة مخططة لأعضاء هيئة التدريس والمؤسسات لبناء برامجهم.',
     plan3A:'انضمام أعضاء هيئة التدريس',plan3B:'إنشاء الكورسات',plan3C:'الكتب الذكية',plan3D:'بعد الموافقة',
-    start:'ابدأ مجانًا',learn:'شوف التجربة',teach:'قدّم للتدريس',
+    start:'استكشف المساحة',learn:'شوف التجربة',teach:'قدّم للتدريس',
     noReal:'معاينة توضيحية فقط · ليست قائمة كورسات منشورة أو باقات أسعار فعلية',
     trial:'نسخة تجريبية · لا توجد اشتراكات أو مدفوعات أو إحصاءات طلاب حقيقية',
     noPartners:'مبنية على قيمة التعليم مش على أرقام إنجازات وهمية'
@@ -68,12 +68,15 @@ const photo={
   second:'https://images.pexels.com/photos/16329567/pexels-photo-16329567.jpeg?auto=compress&cs=tinysrgb&w=1200',
   class:'https://images.pexels.com/photos/4943623/pexels-photo-4943623.jpeg?auto=compress&cs=tinysrgb&w=1200'
 };
+function headingWords(text,offset){
+ return text.split(/(\s+)/).map((word,i)=>/\s+/.test(word)?word:'<span class="v14-word" style="--word-index:'+(offset+i/2)+'">'+word+'</span>').join('');
+}
 function hero(t){
  return '<section class="v11-hero v12-hero" id="mission" aria-labelledby="v12-hero-title">'+
   '<div class="v11-shell v12-hero-shell"><div class="v12-hero-topline"><span>'+t.overline+'</span><span>✳ &nbsp; RAWNAK ACADEMY</span></div>'+
   '<div class="v12-hero-grid"><div class="v12-hero-copy">'+
     '<div class="v12-kicker">RAWNAK <span>ACADEMY</span> / 2026</div>'+
-    '<h1 id="v12-hero-title">'+t.title1+'<br><span>'+t.title2+'</span></h1>'+
+    '<h1 id="v12-hero-title" data-i18n-ignore aria-label="'+t.title1+' '+t.title2+'"><span class="v14-word-line" aria-hidden="true">'+headingWords(t.title1,0)+'</span><span class="v14-word-line" aria-hidden="true">'+headingWords(t.title2,4)+'</span></h1>'+
     '<p>'+t.intro+'</p>'+
     '<div class="v12-hero-actions"><button type="button" class="v12-button" data-nav="signup">'+t.cta+' <span aria-hidden="true">↗</span></button>'+
     '<button type="button" class="v12-secondary" data-v7-scroll="courses">'+t.metric+' <span aria-hidden="true">↓</span></button></div>'+
@@ -81,7 +84,7 @@ function hero(t){
   '</div>'+
   '<div class="v12-mosaic" aria-label="'+t.foot+'">'+
     '<div class="v12-mosaic-column v12-mosaic-left">'+
-      '<figure class="v12-mosaic-image v12-person-one"><img src="'+photo.first+'" alt="'+t.photo1+'" loading="eager" decoding="async"></figure>'+
+      '<figure class="v12-mosaic-image v12-person-one"><img src="'+photo.first+'" alt="'+t.photo1+'" loading="eager" decoding="async" width="640" height="800"></figure>'+
       '<div class="v12-promise"><span class="v12-promise-spark" aria-hidden="true">✳</span><strong>'+t.promiseTitle+'</strong><small>'+t.promiseDesc+'</small></div>'+
       '<div class="v12-metric"><strong>✳<span>↗</span></strong><span>'+t.metric+'</span><small>'+t.metricDesc+'</small></div>'+
     '</div>'+
