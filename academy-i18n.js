@@ -56,6 +56,8 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
   function excluded(n){var p=n.parentElement;return !p||!!p.closest('script,style,code,pre,kbd,samp,svg,math,[translate="no"],[contenteditable="true"],[data-i18n-ignore]')}
   function paintText(n){
     if(!n||excluded(n)||n.parentElement?.closest('textarea'))return;
+    var option=n.parentElement?.closest('option');
+    if(option&&!option.hasAttribute('value'))option.setAttribute('value',option.textContent);
     var current=n.nodeValue;
     if(!current||!/[A-Za-z]/.test(current)&&!originalNodes.has(n))return;
     var prev=originalNodes.get(n),src;

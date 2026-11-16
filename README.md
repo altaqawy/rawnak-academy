@@ -14,6 +14,8 @@ npm run check
 npm test
 ```
 
+After editing a browser script or stylesheet, run `npm run version-assets` to update its content-hash URL before committing. This prevents cached earlier assets from mixing with a new entry document.
+
 The regression suite loads the complete script chain in a DOM model and checks routes, Arabic/English switching, malformed links, draft persistence, safe markup and credential-free entry. It is not a substitute for a real browser or backend security test.
 
 ## Files

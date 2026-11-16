@@ -56,3 +56,6 @@ html[data-motion="off"] *,html[data-motion="none"] *{animation:none!important;tr
 @media(max-width:600px){.v14-public-page .v7-guest-actions>.btn.plain{display:none}.v12-public .v11-announcement{padding:9px 16px}}
 
 .v14-arrow{display:inline-block;width:1em;height:1em;min-width:12px;min-height:12px;vertical-align:middle;flex:none}
+html[lang="en"] .v12-public .v12-hero-copy h1 .v14-word{letter-spacing:-.035em}
+html[lang="en"] .v12-public .v12-hero-copy h1 .v14-word:not(:last-child){margin-inline-end:.09em}
+@media(max-width:600px){.v12-public .v11-head-actions>.v11-text-button{display:none}}

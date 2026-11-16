@@ -5,7 +5,8 @@
   "description": "Bilingual Rawnak Academy static preview",
   "scripts": {
     "test": "node --test tests/release.test.cjs",
-    "check": "node scripts/check-assets.cjs"
+    "check": "node scripts/check-assets.cjs",
+    "version-assets": "node scripts/version-assets.cjs"
   },
   "engines": { "node": ">=20" },
   "devDependencies": { "linkedom": "0.18.15" }

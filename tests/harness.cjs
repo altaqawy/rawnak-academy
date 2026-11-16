@@ -36,7 +36,7 @@ function academy(options = {}) {
   vm.createContext(context);
   function run(code) { return vm.runInContext(code, context); }
   for (const [, src] of html.matchAll(/<script src="([^"]+)"/g)) {
-    vm.runInContext(fs.readFileSync(path.join(root, src), 'utf8'), context, { filename: src });
+    vm.runInContext(fs.readFileSync(path.join(root, src.split('?')[0]), 'utf8'), context, { filename: src });
   }
   async function flush() {
     for (let i = 0; i < 12; i++) {

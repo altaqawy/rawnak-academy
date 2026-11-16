@@ -60,6 +60,7 @@ test('unlinked educator books and questions save and survive reload', async () =
   assert.equal(a.run('v75Books.length'), 1);
   assert.equal(a.run('v75Books[0].course'), '');
   await a.visit('instructor-question-bank');
+  assert.equal(a.document.querySelector('select[name="level"] option').value, 'Easy');
   a.submit('#v75-question-form', { course: '', lesson: '-1', level: 'Easy', topic: 'QA', question: 'Which answer?', choiceA: 'First', choiceB: 'Second', choiceC: 'Third', correct: '0', explanation: 'Draft explanation' });
   await a.flush();
   assert.equal(a.run('v75Questions.length'), 1);
