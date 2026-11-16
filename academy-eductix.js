@@ -14,7 +14,7 @@ const words={
     cta:'Explore the Academy',noteTop:'Built for real growth.',noteBottom:'Move from curiosity to confident practice.',
     photo1:'Woman studying in a library',photo2:'Young learner in a classroom',classAlt:'Learners working together',
     studio:'Interactive classrooms',promiseTitle:'Learning you can apply.',promiseDesc:'Lessons, hands-on practice and smart study tools.',
-    metric:'Learning paths',metricDesc:'Creative · Tech · Business · Health',foot:'A more personal way to learn',
+    metric:'Planned fields',metricDesc:'Creative · Technology · Business · Health',foot:'A more personal way to learn',
     tag1:'CREATIVE SKILLS',tag2:'TECHNOLOGY',tag3:'BUSINESS',tag4:'HEALTH',
     outcomesOver:'HOW WE HELP YOU GROW',outcomesHeading:'Practical skills.',outcomesHeading2:'Purposeful learning.',
     outcomesLead:'The learning experience is built around the things that actually help knowledge stick.',
@@ -41,7 +41,7 @@ const words={
     cta:'استكشف الأكاديمية',noteTop:'تعلّم علشان تتطوّر.',noteBottom:'من الفضول للتطبيق العملي والثقة.',
     photo1:'طالبة تذاكر في المكتبة',photo2:'طالب في فصل تعليمي',classAlt:'طلاب يذاكرون معًا',
     studio:'فصول تعليمية تفاعلية',promiseTitle:'تعلّم وطبّق.',promiseDesc:'دروس وتدريبات وأدوات ذكية تساعدك تتقدم.',
-    metric:'مسارات تعليمية',metricDesc:'إبداع · تقنية · أعمال · طب',foot:'تجربة تعليمية أقرب ليك',
+    metric:'مجالات بنجهزها',metricDesc:'إبداع · تقنية · أعمال · علوم صحية',foot:'تجربة تعليمية أقرب ليك',
     tag1:'مهارات إبداعية',tag2:'تقنية وبرمجة',tag3:'أعمال',tag4:'علوم طبية',
     outcomesOver:'إزاي بنساعدك تتطور',outcomesHeading:'مهارات عملية.',outcomesHeading2:'تعليم له هدف.',
     outcomesLead:'بنجهز تجربة تساعدك تفهم وتثبت المعلومات وتستخدمها في حياتك وشغلك.',
@@ -83,7 +83,7 @@ function hero(t){
     '<div class="v12-mosaic-column v12-mosaic-left">'+
       '<figure class="v12-mosaic-image v12-person-one"><img src="'+photo.first+'" alt="'+t.photo1+'" loading="eager" decoding="async"></figure>'+
       '<div class="v12-promise"><span class="v12-promise-spark" aria-hidden="true">✳</span><strong>'+t.promiseTitle+'</strong><small>'+t.promiseDesc+'</small></div>'+
-      '<div class="v12-metric"><strong>04<span>✳</span></strong><span>'+t.metric+'</span><small>'+t.metricDesc+'</small></div>'+
+      '<div class="v12-metric"><strong>✳<span>↗</span></strong><span>'+t.metric+'</span><small>'+t.metricDesc+'</small></div>'+
     '</div>'+
     '<div class="v12-mosaic-column v12-mosaic-right">'+
       '<figure class="v12-mosaic-image v12-classroom"><img src="'+photo.class+'" alt="'+t.classAlt+'" loading="eager" decoding="async"><figcaption>'+t.studio+' <span aria-hidden="true">↗</span></figcaption></figure>'+
