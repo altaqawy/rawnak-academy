@@ -89,7 +89,7 @@
     if (img.classList.contains('v14-image-unavailable')) return;
     img.classList.add('v14-image-unavailable');
     // A local brand asset keeps the layout useful when a photo host is blocked.
-    img.src = 'assets/rawnak-academy-logo.webp';
+    img.src = 'assets/rawnak-academy-logo-hd.webp';
     img.alt = t('RAWNAK Academy — photograph unavailable', 'رونق أكاديمي — الصورة غير متاحة');
   }
 

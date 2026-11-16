@@ -144,7 +144,7 @@ test('English wordmark and alpha-preserving negative footer identity survive loc
       assert.equal(brand.getAttribute('dir'), 'ltr');
       assert.equal(brand.getAttribute('translate'), 'no');
     }
-    assert.equal(a.document.querySelector('footer .v15-brand img').getAttribute('src'), 'assets/rawnak-academy-negative.svg');
+    assert.equal(a.document.querySelector('footer .v15-brand img').getAttribute('src'), 'assets/rawnak-academy-negative-hd.svg');
     assert.doesNotMatch(a.document.querySelector('#app').textContent, /رونق\s+[أا]كاد(?:يم|م)[يى]/);
     assert.doesNotMatch(a.document.querySelector('.v12-kicker').textContent, /أكاديمي/);
   }

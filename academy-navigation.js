@@ -1,5 +1,4 @@
-/* Original RAWNAK navigation inspired by Framer's Glide Navigation and Pill Nav Bar.
-   Shared English wordmark; local, alpha-preserving negative emblem for dark footers. */
+/* Transparent, backdrop-inverting RAWNAK navigation with a shared HD identity. */
 (function () {
   'use strict';
   const app = document.getElementById('app');
@@ -11,12 +10,12 @@
   let inertBefore = [];
 
   function brand(negative = false) {
-    return '<span class="v15-brand-symbol"><img src="assets/rawnak-academy-' + (negative ? 'negative.svg' : 'logo.webp') + '" width="48" height="48" alt="" decoding="async"></span>' +
+    return '<span class="v15-brand-symbol"><img src="assets/rawnak-academy-' + (negative ? 'negative-hd.svg' : 'logo-hd.webp') + '" width="48" height="48" alt="" decoding="async"></span>' +
       '<span class="v15-wordmark"><strong>RAWNAK</strong><small>ACADEMY</small></span>';
   }
   function normalizeBrands() {
     app.querySelectorAll('a.logo,a.v11-brand,a.v15-brand').forEach(link => {
-      const negative = !!link.closest('footer');
+      const negative = !!link.closest('footer,.v15-nav');
       link.classList.add('v15-brand');
       link.classList.toggle('v15-brand-negative', negative);
       link.setAttribute('translate', 'no');
@@ -122,7 +121,7 @@
       header = document.createElement('header');
       header.className = 'v7-guest-head v15-nav' + (page.querySelector('.v11-announcement') ? ' v15-with-announcement' : '');
       header.setAttribute('data-v15-navigation', '');
-      header.innerHTML = '<div class="v15-nav-shell"><a class="v15-brand" href="#/welcome" data-v7-scroll="mission" translate="no" dir="ltr" lang="en" aria-label="RAWNAK ACADEMY">' + brand() + '</a>' +
+      header.innerHTML = '<div class="v15-nav-shell"><a class="v15-brand" href="#/welcome" data-v7-scroll="mission" translate="no" dir="ltr" lang="en" aria-label="RAWNAK ACADEMY">' + brand(true) + '</a>' +
         '<nav class="v15-desktop-links" aria-label="' + t('Main navigation', 'القائمة الرئيسية') + '"><span class="v15-nav-highlight" aria-hidden="true"></span>' + destinationLinks(false) + '</nav>' +
         '<div class="v7-guest-actions v15-nav-actions">' + languageButton() + '<button type="button" class="v15-nav-cta" data-nav="' + route + '"><span>' + cta + '</span><i>' + arrow + '</i></button>' +
         '<button type="button" class="v15-menu-trigger" data-v15-toggle aria-expanded="false" aria-controls="academy-navigation-panel" aria-label="' + t('Open Academy menu', 'افتح قائمة الأكاديمية') + '"><span></span><span></span></button></div></div>' +
