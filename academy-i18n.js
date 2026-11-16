@@ -22,7 +22,7 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
   }
   var foldedDictionary=new Map(Array.from(dictionary, function(entry){return [entry[0].toLowerCase(),entry[1]]}));
   function brandName(s){return String(s).replace(/رونق\s+[أا]كاد(?:يم|م)[يى]/g,'RAWNAK ACADEMY')}
-  function lookup(s){if(/^RAWNAK(?:\s+ACADEMY)?$/i.test(s))return s.toUpperCase();return dictionary.get(s)||foldedDictionary.get(s.toLowerCase())}
+  function lookup(s){if(/^(?:RAWNAK(?:\s+ACADEMY)?|ACADEMY)$/i.test(s))return s.toUpperCase();return dictionary.get(s)||foldedDictionary.get(s.toLowerCase())}
   var arabicPunctuation={'?':'؟'};
   function normalize(s){return String(s).replace(/\s+/g,' ').trim()}
   function translate(s){
@@ -60,7 +60,7 @@ const RAWNAK_FINISH_TRANSLATIONS = "Privacy in this preview|الخصوصية ف�
     var option=n.parentElement?.closest('option');
     if(option&&!option.hasAttribute('value'))option.setAttribute('value',option.textContent);
     var current=n.nodeValue;
-    if(!current||!/[A-Za-z]/.test(current)&&!originalNodes.has(n))return;
+    if(!current||!/[A-Za-z]/.test(current)&&!originalNodes.has(n)&&brandName(current)===current)return;
     var prev=originalNodes.get(n),src;
     if(!prev){src=current;prev={source:src,rendered:current};originalNodes.set(n,prev)}
     else{if(current!==prev.rendered&&current!==prev.source){prev.source=current;prev.rendered=current}src=prev.source}

@@ -121,7 +121,7 @@
       const cta = role ? t('My workspace', 'مساحتي') : t('Explore Academy', 'استكشف الأكاديمية');
       header = document.createElement('header');
       header.className = 'v7-guest-head v15-nav' + (page.querySelector('.v11-announcement') ? ' v15-with-announcement' : '');
-      header.setAttribute('data-i18n-ignore', '');
+      header.setAttribute('data-v15-navigation', '');
       header.innerHTML = '<div class="v15-nav-shell"><a class="v15-brand" href="#/welcome" data-v7-scroll="mission" translate="no" dir="ltr" lang="en" aria-label="RAWNAK ACADEMY">' + brand() + '</a>' +
         '<nav class="v15-desktop-links" aria-label="' + t('Main navigation', 'القائمة الرئيسية') + '"><span class="v15-nav-highlight" aria-hidden="true"></span>' + destinationLinks(false) + '</nav>' +
         '<div class="v7-guest-actions v15-nav-actions">' + languageButton() + '<button type="button" class="v15-nav-cta" data-nav="' + route + '"><span>' + cta + '</span><i>' + arrow + '</i></button>' +
