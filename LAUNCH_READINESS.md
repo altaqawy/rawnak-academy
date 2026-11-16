@@ -22,7 +22,19 @@
 
 `npm test` contains twelve regression checks covering both locales, information and malformed routes, all three role workspaces, unlinked draft persistence, cross-page section navigation, modal translation, backup data scope, invalid sessions, escaped draft markup and motion preferences. These run in a DOM model. They do not measure real rendering, keyboard focus geometry or browser accessibility behavior.
 
-Real browser verification and any additional findings are recorded below before delivery.
+## Browser verification
+
+- Verified the public release in Chrome after successful GitHub Pages deployment of commit `1942fb9faa1166e1c032fed3f50b03e27c15d2b8`.
+- Reviewed the desktop public page at 1363 px, student workspace and study planner, educator overview and book authoring, preview entry and privacy information.
+- Exercised Arabic/English switching and section navigation from the privacy page to Smart Books. The destination settled at the expected header offset (about 110 px).
+- Reviewed real iframe viewports of 320, 390 and 768 px. Their document widths matched their available viewport widths (305, 375 and 753 px after scrollbars), with no horizontal page overflow. Checked the 320 px Arabic menu opening, section navigation and automatic closing.
+- Browser review found clipped header controls on a small phone, tight English word spacing, font-dependent arrow glyphs and cached earlier release assets. These were corrected, deployed and checked again. Arrow icons now render as SVG and script/style URLs include content hashes.
+- Checked that translated option labels preserve the original form values and that user-authored draft cells are not translated.
+- No site-origin errors or CSP violations appeared in the final desktop browser error log. An unrelated browser-extension metadata error was excluded from this result.
+
+## Hosting and CI status
+
+GitHub Pages successfully published the updated application. The custom `Academy quality` workflow did not start because GitHub returned: “The job was not started because your account is locked due to a billing issue.” Local checks were rerun from a clean `npm ci --ignore-scripts`; script/asset/CSS checks and all twelve tests passed. Resolve the account billing status before relying on automated GitHub CI. Backend authorization, payment-provider verification and end-to-end enrollment are outside this static release and remain launch prerequisites.
 
 ## Required for an operational release
 
