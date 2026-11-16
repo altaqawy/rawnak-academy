@@ -138,6 +138,27 @@ function replacePage(){
  const from=html.indexOf(begin),to=html.indexOf(stop,from);
  if(from<0||to<0)return html;
  html=html.slice(0,from)+hero(t)+html.slice(to);
+ // Do not depict a fake catalog: keep the Eductix course area, but show its real empty state.
+ const courseStart=html.indexOf('<section class="v11-pathways v11-section" id="courses">');
+ const courseEnd=html.indexOf('<section class="v11-process',courseStart);
+ if(courseStart>=0&&courseEnd>courseStart){
+   const isArabic=locale()==='ar';
+   const section='<section class="v11-pathways v11-section v13-public-catalog" id="courses" aria-labelledby="v13-catalog-title">'+
+    '<div class="v11-shell"><div class="v12-section-head"><div><span class="v12-eyebrow">02 / '+
+       (isArabic?'البرامج التعليمية':'LEARNING PROGRAMS')+'</span><h2 id="v13-catalog-title">'+
+       (isArabic?'الكورسات الحقيقية':'Real courses.')+'<br><em>'+(isArabic?'هتظهر هنا.':'Will appear here.')+'</em></h2></div><p>'+
+       (isArabic?'بنجهز ربط الكورسات وأعضاء هيئة التدريس. مش هنعرض دروس أو عدد طلاب أو شهادات وهمية.':'The verified course catalog and educator profiles are not connected yet. No invented lessons, student counts or certificates are displayed.')+
+    '</p></div><div class="v13-catalog-stage"><div class="v13-catalog-copy"><span class="v13-catalog-status"><i></i>'+
+      (isArabic?'الكتالوج غير منشور بعد':'CATALOG NOT PUBLISHED')+'</span>'+
+      '<h3>'+(isArabic?'بداية جديدة للتعلّم.':'A new chapter in learning.')+'</h3><p>'+
+      (isArabic?'هنا هتلاقي الكورسات المعتمدة بمجرد نشرها، مع تفاصيل المدرس والدروس والمواعيد والأسعار الحقيقية.':'Once approved, courses will appear with verified educators, lessons, schedules and real prices.')+
+      '</p><button type="button" class="v12-button" data-nav="login">'+
+      (isArabic?'استكشف تجربة الطالب':'Explore student preview')+' <span aria-hidden="true">↗</span></button>'+
+      '<small>'+(isArabic?'المعاينة فقط؛ مفيش تسجيل كورسات أو مدفوعات فعلية حاليًا.':'Preview only — live enrollment and payments are not yet available.')+'</small></div>'+
+      '<div class="v13-catalog-art" aria-hidden="true"><div class="v13-catalog-art-mark">✳</div><div class="v13-catalog-art-panel"><span>RAWNAK / ACADEMY</span><strong>'+
+      (isArabic?'تعلّم وتطوّر.':'LEARN & GROW.')+'</strong><i>↗</i></div></div></div></div></section>';
+   html=html.slice(0,courseStart)+section+html.slice(courseEnd);
+ }
  html=html.replace('<section class="v11-books',outcomes(t)+'<section class="v11-books');
  html=html.replace('<section class="v11-faq',paths(t)+'<section class="v11-faq');
  html=html.replace('<div class="v11-announcement">','<div class="v11-announcement" data-edu-reference="Eductix-inspired original implementation">');
