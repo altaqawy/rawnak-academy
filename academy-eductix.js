@@ -14,7 +14,7 @@ const words={
     cta:'Explore the Academy',noteTop:'Built for real growth.',noteBottom:'Move from curiosity to confident practice.',
     photo1:'Woman studying in a library',photo2:'Young learner in a classroom',classAlt:'Learners working together',
     studio:'Interactive classrooms',promiseTitle:'Learning you can apply.',promiseDesc:'Lessons, hands-on practice and smart study tools.',
-    metric:'Learning paths',metricDesc:'Creative · Tech · Business · Health',foot:'A more personal way to learn',
+    metric:'Planned fields',metricDesc:'Creative · Technology · Business · Health',foot:'A more personal way to learn',
     tag1:'CREATIVE SKILLS',tag2:'TECHNOLOGY',tag3:'BUSINESS',tag4:'HEALTH',
     outcomesOver:'HOW WE HELP YOU GROW',outcomesHeading:'Practical skills.',outcomesHeading2:'Purposeful learning.',
     outcomesLead:'The learning experience is built around the things that actually help knowledge stick.',
@@ -41,7 +41,7 @@ const words={
     cta:'استكشف الأكاديمية',noteTop:'تعلّم علشان تتطوّر.',noteBottom:'من الفضول للتطبيق العملي والثقة.',
     photo1:'طالبة تذاكر في المكتبة',photo2:'طالب في فصل تعليمي',classAlt:'طلاب يذاكرون معًا',
     studio:'فصول تعليمية تفاعلية',promiseTitle:'تعلّم وطبّق.',promiseDesc:'دروس وتدريبات وأدوات ذكية تساعدك تتقدم.',
-    metric:'مسارات تعليمية',metricDesc:'إبداع · تقنية · أعمال · طب',foot:'تجربة تعليمية أقرب ليك',
+    metric:'مجالات بنجهزها',metricDesc:'إبداع · تقنية · أعمال · علوم صحية',foot:'تجربة تعليمية أقرب ليك',
     tag1:'مهارات إبداعية',tag2:'تقنية وبرمجة',tag3:'أعمال',tag4:'علوم طبية',
     outcomesOver:'إزاي بنساعدك تتطور',outcomesHeading:'مهارات عملية.',outcomesHeading2:'تعليم له هدف.',
     outcomesLead:'بنجهز تجربة تساعدك تفهم وتثبت المعلومات وتستخدمها في حياتك وشغلك.',
@@ -83,7 +83,7 @@ function hero(t){
     '<div class="v12-mosaic-column v12-mosaic-left">'+
       '<figure class="v12-mosaic-image v12-person-one"><img src="'+photo.first+'" alt="'+t.photo1+'" loading="eager" decoding="async"></figure>'+
       '<div class="v12-promise"><span class="v12-promise-spark" aria-hidden="true">✳</span><strong>'+t.promiseTitle+'</strong><small>'+t.promiseDesc+'</small></div>'+
-      '<div class="v12-metric"><strong>04<span>✳</span></strong><span>'+t.metric+'</span><small>'+t.metricDesc+'</small></div>'+
+      '<div class="v12-metric"><strong>✳<span>↗</span></strong><span>'+t.metric+'</span><small>'+t.metricDesc+'</small></div>'+
     '</div>'+
     '<div class="v12-mosaic-column v12-mosaic-right">'+
       '<figure class="v12-mosaic-image v12-classroom"><img src="'+photo.class+'" alt="'+t.classAlt+'" loading="eager" decoding="async"><figcaption>'+t.studio+' <span aria-hidden="true">↗</span></figcaption></figure>'+
@@ -138,7 +138,42 @@ function replacePage(){
  const from=html.indexOf(begin),to=html.indexOf(stop,from);
  if(from<0||to<0)return html;
  html=html.slice(0,from)+hero(t)+html.slice(to);
+ // Do not depict a fake catalog: keep the Eductix course area, but show its real empty state.
+ const courseStart=html.indexOf('<section class="v11-pathways v11-section" id="courses">');
+ const courseEnd=html.indexOf('<section class="v11-process',courseStart);
+ if(courseStart>=0&&courseEnd>courseStart){
+   const isArabic=locale()==='ar';
+   const section='<section class="v11-pathways v11-section v13-public-catalog" id="courses" aria-labelledby="v13-catalog-title">'+
+    '<div class="v11-shell"><div class="v12-section-head"><div><span class="v12-eyebrow">02 / '+
+       (isArabic?'البرامج التعليمية':'LEARNING PROGRAMS')+'</span><h2 id="v13-catalog-title">'+
+       (isArabic?'الكورسات الحقيقية':'Real courses.')+'<br><em>'+(isArabic?'هتظهر هنا.':'Will appear here.')+'</em></h2></div><p>'+
+       (isArabic?'بنجهز ربط الكورسات وأعضاء هيئة التدريس. مش هنعرض دروس أو عدد طلاب أو شهادات وهمية.':'The verified course catalog and educator profiles are not connected yet. No invented lessons, student counts or certificates are displayed.')+
+    '</p></div><div class="v13-catalog-stage"><div class="v13-catalog-copy"><span class="v13-catalog-status"><i></i>'+
+      (isArabic?'الكتالوج غير منشور بعد':'CATALOG NOT PUBLISHED')+'</span>'+
+      '<h3>'+(isArabic?'بداية جديدة للتعلّم.':'A new chapter in learning.')+'</h3><p>'+
+      (isArabic?'هنا هتلاقي الكورسات المعتمدة بمجرد نشرها، مع تفاصيل المدرس والدروس والمواعيد والأسعار الحقيقية.':'Once approved, courses will appear with verified educators, lessons, schedules and real prices.')+
+      '</p><button type="button" class="v12-button" data-nav="login">'+
+      (isArabic?'استكشف تجربة الطالب':'Explore student preview')+' <span aria-hidden="true">↗</span></button>'+
+      '<small>'+(isArabic?'المعاينة فقط؛ مفيش تسجيل كورسات أو مدفوعات فعلية حاليًا.':'Preview only — live enrollment and payments are not yet available.')+'</small></div>'+
+      '<div class="v13-catalog-art" aria-hidden="true"><div class="v13-catalog-art-mark">✳</div><div class="v13-catalog-art-panel"><span>RAWNAK / ACADEMY</span><strong>'+
+      (isArabic?'تعلّم وتطوّر.':'LEARN & GROW.')+'</strong><i>↗</i></div></div></div></div></section>';
+   html=html.slice(0,courseStart)+section+html.slice(courseEnd);
+ }
  html=html.replace('<section class="v11-books',outcomes(t)+'<section class="v11-books');
+ // Replace prototype lesson counts and completed-check icons with honest concept visuals.
+ const isArabicHere=locale()==='ar';
+ html=html.replace(/<div class="v11-faux-player">[\s\S]*?<\/div><\/article>/,
+   '<div class="v13-feature-planned"><span aria-hidden="true">✳</span><strong>'+
+     (isArabicHere?'مكان دروسك المستقبلية':'Your future lesson space')+'</strong><small>'+
+     (isArabicHere?'هيظهر المحتوى هنا بعد نشره':'Published lessons will appear here')+
+   '</small></div></article>');
+ html=html.replace(/<div class="v11-map-track">[\s\S]*?<\/div>/,
+   '<div class="v13-feature-planned v13-feature-simple"><span aria-hidden="true">↗</span><strong>'+
+     (isArabicHere?'خطوات واضحة بعد تفعيل الكورسات':'A clear path once courses launch')+
+   '</strong></div>');
+ html=html.replace('VOLUME 01 / SMART LEARNING',
+   isArabicHere?'فكرة مبدئية / كتاب ذكي':'CONCEPT / SMART LEARNING');
+
  html=html.replace('<section class="v11-faq',paths(t)+'<section class="v11-faq');
  html=html.replace('<div class="v11-announcement">','<div class="v11-announcement" data-edu-reference="Eductix-inspired original implementation">');
  return html;

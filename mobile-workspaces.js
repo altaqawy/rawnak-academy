@@ -4,12 +4,12 @@
 (function(){
   'use strict';
   var navigation={
-    student:[['my-learning','Home','book'],['courses','Courses','search'],['classroom','Study','play'],['wallet','Rewards','gift']],
+    student:[['my-learning','Home','book'],['courses','Courses','search'],['tools','Study tools','note'],['wallet','Rewards','gift']],
     instructor:[['instructor','Home','book'],['instructor-courses','Courses','play'],['instructor-students','Learners','trophy'],['instructor-earnings','Earnings','coin']],
     owner:[['owner','Home','book'],['owner-instructors','Educators','trophy'],['owner-courses','Courses','play'],['owner-analytics','Insights','zap']]
   };
   var shortcutMap={
-    student:[['classroom','Continue learning','play'],['courses','Explore courses','search'],['book-library','Smart books','book'],['wallet','My rewards','gift']],
+    student:[['study-planner','Study planner','clock'],['courses','Explore courses','search'],['tools','Study notes','note'],['book-library','Smart books','book']],
     instructor:[['instructor-courses','Manage courses','play'],['instructor-books','Smart books','book'],['instructor-question-bank','Question bank','note'],['instructor-qr-studio','QR Studio','spark']],
     owner:[['owner-instructors','Educator team','trophy'],['owner-courses','Course catalog','play'],['owner-analytics','Analytics','zap'],['owner-finance','Finance','coin']]
   };
@@ -19,9 +19,9 @@
     owner:[['owner-finance','Finance','coin'],['owner-books','Smart books','book'],['owner-settings','Settings','spark']]
   };
   var heroCopy={
-    student:['STUDENT / YOUR LEARNING SPACE','Make progress, your way.','Pick up where you left off and build a learning habit that lasts.','Continue lesson','classroom','Explore courses','courses'],
+    student:['STUDENT / YOUR LEARNING SPACE','Make progress, your way.','Your study tools are ready. Published courses will appear when the real catalog is connected.','Study tools','tools','Explore courses','courses'],
     instructor:['EDUCATOR / TEACHING STUDIO','Teach with clarity.','A dedicated space for teachers, doctors, lecturers and professors.','Manage courses','instructor-courses','Question bank','instructor-question-bank'],
-    owner:['OWNER / COMMAND CENTER','Everything in view.','Quick access to people, courses and academy operations.','View analytics','owner-analytics','Manage educators','owner-instructors']
+    owner:['OWNER / COMMAND CENTER','Everything in view.','Manage local course drafts and educator approvals while verified analytics are connected.','Manage educators','owner-instructors','Course drafts','owner-courses']
   };
   function htmlEscape(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function glyph(name){try{return typeof icon==='function'?icon(name):'<span aria-hidden="true">•</span>'}catch(e){return '<span aria-hidden="true">•</span>'}}
