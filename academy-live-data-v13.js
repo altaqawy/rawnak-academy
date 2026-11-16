@@ -78,6 +78,9 @@ apply();
 if(typeof render==='function'){
  const previous=render;
  render=function(){apply();previous()};
+ // The inline prototype may already have rendered a legacy demo dashboard.
+ // Replace it immediately when the new scripts finish loading.
+ if(document.querySelector('#app .v7-portal'))render();
 }
 // Existing local drafts remain user-editable. No background fake records are generated.
 })();
